@@ -20,15 +20,5 @@
       <description>Motivations for the RStudio course server This fall is probably the most enjoyable semester I&amp;rsquo;ve ever had teaching. I had an opportunity to design and run an upper-level special topics course on bioinformatics at Elmhurst College. It&amp;rsquo;s a class I&amp;rsquo;ve always wanted to teach because for me, it&amp;rsquo;s like being able to organize a class around everything I would have wanted to know before going to graduate school for genetics.</description>
     </item>
     
-    <item>
-      <title>West Nile Virus in Chicago, Part 1</title>
-      <link>https://kahultman.github.io/Evolve-Data-Science/page/2016-12-17-wnv-blogpost/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/Evolve-Data-Science/page/2016-12-17-wnv-blogpost/</guid>
-      <description>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.
-The data is structured so there is instant gratification.</description>
-    </item>
-    
   </channel>
 </rss>
