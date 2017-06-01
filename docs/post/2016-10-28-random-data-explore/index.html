@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Monte Carlo of Random Correlations</title>
+  <meta property="og:title" content="Monte Carlo of Random Correlations" />
+  <meta name="twitter:title" content="Monte Carlo of Random Correlations" />
+  <meta name="description" content="Exploring correlations of random numbers When working with big data you need to be more aware of statistical outliers than you do with more typical data sizes. Basic statistical tests like a Student’s t-test or Pearson correlation are acceptable when you only test a few relationships in a small data set. But when you examine the correlation with thousands of columns of data, you are bound to find several that are strongly correlated.">
+  <meta property="og:description" content="Exploring correlations of random numbers When working with big data you need to be more aware of statistical outliers than you do with more typical data sizes. Basic statistical tests like a Student’s t-test or Pearson correlation are acceptable when you only test a few relationships in a small data set. But when you examine the correlation with thousands of columns of data, you are bound to find several that are strongly correlated.">
+  <meta name="twitter:description" content="Exploring correlations of random numbers When working with big data you need to be more aware of statistical outliers than you do with more typical data sizes. Basic statistical tests like a Student’s …">
+  <meta name="author" content="Keith Hultman"/>
+  <link href='https://kahultman.github.io/Evolve-Data-Science/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://kahultman.github.io/Evolve-Data-Science/img/avatar-icon.png" />
+  <meta name="twitter:image" content="https://kahultman.github.io/Evolve-Data-Science/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@keithhultman" />
+  <meta name="twitter:creator" content="@keithhultman" />
+  <meta property="og:url" content="https://kahultman.github.io/Evolve-Data-Science/post/2016-10-28-random-data-explore/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Evolve Data Science" />
+
+  <meta name="generator" content="Hugo 0.21" />
+  <link rel="canonical" href="https://kahultman.github.io/Evolve-Data-Science/post/2016-10-28-random-data-explore/" />
+  <link rel="alternate" href="https://kahultman.github.io/Evolve-Data-Science/index.xml" type="application/rss+xml" title="Evolve Data Science">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://kahultman.github.io/Evolve-Data-Science/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://kahultman.github.io/Evolve-Data-Science/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://kahultman.github.io/Evolve-Data-Science/css/highlight.min.css" />
+
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://kahultman.github.io/Evolve-Data-Science">Evolve Data Science</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/Evolve-Data-Science">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Projects" href="/Evolve-Data-Science">Projects</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/Evolve-Data-Science/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/Evolve-Data-Science/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Evolve Data Science" href="https://kahultman.github.io/Evolve-Data-Science">
+            <img class="avatar-img" src="https://kahultman.github.io/Evolve-Data-Science/img/avatar-icon.png" alt="Evolve Data Science" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 data-img-src-1="https://kahultman.github.io/img/feature-image-microarray3.jpg" ></div>
+  
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Monte Carlo of Random Correlations</h1>
+                  
+                  
+                    <span class="post-meta">
+  Posted on October 28, 2016
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Monte Carlo of Random Correlations</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on October 28, 2016
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <div id="exploring-correlations-of-random-numbers" class="section level1">
+<h1>Exploring correlations of random numbers</h1>
+<p>When working with big data you need to be more aware of statistical outliers than you do with more typical data sizes. Basic statistical tests like a Student’s t-test or Pearson correlation are acceptable when you only test a few relationships in a small data set. But when you examine the correlation with thousands of columns of data, you are bound to find several that are strongly correlated. It’s always good to have an idea for the ‘expect’ value. How many correlations should I expect to see with this R value or better given the size of my data set.</p>
+<p>To explore this idea, we can take a look at a random set of features produced by <a href="http://www.random.org">Random.org</a>. These data are organized into a 1000x20 table (1000 rows and 20 columns). We can create a correlation matrix and view the plot of Pearson’s correlation for each pairing of the 20 columns.</p>
+<pre class="r"><code>randata &lt;- read.csv(&quot;Random\ data\ v2.csv&quot;, header = FALSE)
+library(corrplot)
+randcorr &lt;- cor(randata)
+corrplot(randcorr, method = &quot;circle&quot;)</code></pre>
+<p><img src="/Evolve-Data-Sciencepost/2016-10-28-random-data-explore_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>With 20 features and 1000 observations for each feature we don’t see many features that have a high correlation. The highest correlation value, in either positive or negative direction is:</p>
+<pre class="r"><code>randcorr[randcorr == 1] &lt;- 0
+max(abs(randcorr))</code></pre>
+<pre><code>## [1] 0.1041321</code></pre>
+<p>The correlation of 0.104 is a very low value, suggesting that there little to no relationship between our features. What happens when we transpose the data frame to have 1000 features with only 20 observations? Let’s look for strong correlations, with an R &gt; 0.8.</p>
+<pre class="r"><code>trandata &lt;- t(randata)
+trandcorr &lt;- cor(trandata)
+trandcorr[trandcorr == 1] &lt;- 0 
+high_corr &lt;- trandcorr &gt; 0.8
+set.seed(5)
+library(caret)</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre class="r"><code>highlyCorrelated &lt;- findCorrelation(trandcorr, cutoff = 0.8, verbose = TRUE)</code></pre>
+<pre><code>## 
+##  Combination row 177 and column 407 is above the cut-off, value = 0.827 
+##       Flagging column 177 
+##  Combination row 48 and column 450 is above the cut-off, value = 0.83 
+##       Flagging column 450 
+##  Combination row 266 and column 450 is above the cut-off, value = -0.851 
+##       Flagging column 266 
+##  Combination row 178 and column 534 is above the cut-off, value = 0.843 
+##       Flagging column 534 
+##  Combination row 439 and column 565 is above the cut-off, value = 0.805 
+##       Flagging column 565 
+##  Combination row 65 and column 612 is above the cut-off, value = -0.804 
+##       Flagging column 65 
+##  Combination row 92 and column 713 is above the cut-off, value = -0.849 
+##       Flagging column 713 
+##  Combination row 380 and column 725 is above the cut-off, value = -0.837 
+##       Flagging column 725 
+##  Combination row 589 and column 791 is above the cut-off, value = 0.83 
+##       Flagging column 791 
+##  Combination row 759 and column 867 is above the cut-off, value = 0.839 
+##       Flagging column 867 
+##  Combination row 134 and column 873 is above the cut-off, value = 0.802 
+##       Flagging column 134 
+##  Combination row 48 and column 887 is above the cut-off, value = 0.81 
+##       Flagging column 887 
+##  Combination row 197 and column 908 is above the cut-off, value = 0.81 
+##       Flagging column 908 
+##  Combination row 80 and column 992 is above the cut-off, value = 0.804 
+##       Flagging column 992</code></pre>
+<pre class="r"><code>length(highlyCorrelated)</code></pre>
+<pre><code>## [1] 14</code></pre>
+<p>There are 14 pairs of columns that have a Pearson’s correlation above 0.8 in this data set.</p>
+<p>I am not sure how to extract all of the highly correlated columns programatically, the findCorrelation function will only report one of the two highly correlated columns since it is used to remove columns in a dataset that are correlated and therefore redundant. In this case I want to extract just those pairs of columns, so I create the list of missing columns by hand below. Then we can plot the correlations of the columns with correlations above 0.8.</p>
+<pre class="r"><code>hc &lt;- c(177,407,48,266,178,439,65,92,380,589,759,134,48,197,80)
+highlyCorrelated &lt;- c(highlyCorrelated, hc)
+trandata_high &lt;- cor(trandata[,highlyCorrelated])
+corrplot(trandata_high, method = &quot;circle&quot;)</code></pre>
+<p><img src="/Evolve-Data-Sciencepost/2016-10-28-random-data-explore_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div id="and-knowing-is-half-the-battle" class="section level3">
+<h3>And knowing is half the battle!</h3>
+<p>Here we can see several strong correlations between these columns. Strong positive correlations are dark blue and strong negative correlations are dark red. This Monte Carlo simulation shows how easy it is to find very strong correlations in a wide and shallow data set even from completely random numbers.</p>
+</div>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-25-hadoop-popularity/" data-toggle="tooltip" data-placement="top" title="Hadoop Popularity">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="https://kahultman.github.io/Evolve-Data-Science/post/2016-12-09-enova-data-smackdown-competition/" data-toggle="tooltip" data-placement="top" title="Enova Data Smackdown Competition">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://kahultman.github.io/Evolve-Data-Science/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Keith Hultman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://kahultman.github.io/Evolve-Data-Science">Evolve Data Science</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.21</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://kahultman.github.io/Evolve-Data-Science/js/main.js"></script>
+<script src="https://kahultman.github.io/Evolve-Data-Science/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/post/2016-10-28-random-data-explore/</loc>
+    <lastmod>2016-10-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/post/2016-09-25-hadoop-popularity/</loc>
     <lastmod>2016-09-25T00:00:00+00:00</lastmod>
   </url>
@@ -43,7 +48,7 @@
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/bigdata/</loc>
-    <lastmod>2016-09-25T00:00:00+00:00</lastmod>
+    <lastmod>2016-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -72,6 +77,12 @@
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/competition/</loc>
     <lastmod>2016-12-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/correlation/</loc>
+    <lastmod>2016-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,7 +155,7 @@
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/</loc>
-    <lastmod>2016-09-25T00:00:00+00:00</lastmod>
+    <lastmod>2016-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

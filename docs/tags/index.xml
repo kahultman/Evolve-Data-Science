@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
-    <lastBuildDate>Sun, 25 Sep 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Oct 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -24,7 +24,7 @@
     <item>
       <title>Bigdata</title>
       <link>https://kahultman.github.io/Evolve-Data-Science/tags/bigdata/</link>
-      <pubDate>Sun, 25 Sep 2016 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 28 Oct 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>https://kahultman.github.io/Evolve-Data-Science/tags/bigdata/</guid>
       <description></description>
@@ -54,6 +54,15 @@
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>https://kahultman.github.io/Evolve-Data-Science/tags/competition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Correlation</title>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/correlation/</link>
+      <pubDate>Fri, 28 Oct 2016 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/correlation/</guid>
       <description></description>
     </item>
     
