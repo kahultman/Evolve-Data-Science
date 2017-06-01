@@ -33,7 +33,7 @@ pygmentCodeFences = true
 [Author]
   name = "Keith Hultman"
   email = "keithh@gmail.com"
-# facebook = "username"
+#  facebook = "username"
 #  googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
   github = "kahultman"
   twitter = "keithhultman"
@@ -63,6 +63,18 @@ pygmentCodeFences = true
     identifier = "Projects"
     name = "Projects"
     url = "page/"
+    weight = 2
+    
+[[menu.main]]
+    parent = "Projects"
+    name = "West Nile Virus"
+    url = "post/2016-12-17-WNV-BlogPost"
+    weight = 1
+    
+[[menu.main]]
+    parent = "Projects"
+    name = "Meteor Data Exploration"
+    url = "post/2015-09-07-meteor"
     weight = 2
 
 [[menu.main]]
