@@ -1,13 +1,10 @@
 ---
-layout: post
 title: "West Nile Virus in Chicago, Part 1"
 excerpt: "Predicting spread of West Nile Virus in Chicago"
 author: keith_hultman
 modified: 2016-12-17
-categories: articles
 tags: [R, Project, Prediction, Data Exploration]
-image:
-  feature: feature-image-bean.jpg
+bigimg: [{src: "/img/feature-image-bean.jpg"}]
 comments: true
 share: true
 ---

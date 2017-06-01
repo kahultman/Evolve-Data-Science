@@ -30,7 +30,6 @@ As part of this curriculum revision, we recently reached out to alumni through s
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-09-enova-data-smackdown-competition/</guid>
       <description>Last night I attended a great data science meetup hosted by Enova Decisions in downtown Chicago. I’ve been to a few other data related meetups that mostly focused on talks or networking, but this one was all based around a challenging data set for participants to delve into.
-smackdown.jpg
  I heard word of the Smackdown from the fantastic Chicago R Users Group (RUG) earlier this week and was sure to register as soon as I could.</description>
     </item>
     
@@ -107,7 +106,7 @@ Educational Background  MS Data Science, Elmhurst University, 2017 PhD Molecular
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>https://kahultman.github.io/Evolve-Data-Science/page/2016-12-17-wnv-blogpost/</guid>
       <description>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.
- The data is structured so there is instant gratification.</description>
+The data is structured so there is instant gratification.</description>
     </item>
     
   </channel>

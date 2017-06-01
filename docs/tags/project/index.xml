@@ -18,7 +18,7 @@
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>https://kahultman.github.io/Evolve-Data-Science/page/2016-12-17-wnv-blogpost/</guid>
       <description>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.
- The data is structured so there is instant gratification.</description>
+The data is structured so there is instant gratification.</description>
     </item>
     
   </channel>
