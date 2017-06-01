@@ -2,7 +2,7 @@ baseurl = "https://kahultman.github.io/Evolve-Data-Science/"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "Evolve Data Science"
-#relativeurls = true
+relativeurls = true
 theme = "beautifulhugo"
 publishDir = "docs"
 metaDataFormat = "yaml"
@@ -68,7 +68,7 @@ pygmentCodeFences = true
 [[menu.main]]
     parent = "Projects"
     name = "West Nile Virus"
-    url = "post/2016-12-17-WNV-BlogPost"
+    url = "post/2016-12-17-wnv-blogpost/"
     weight = 1
     
 [[menu.main]]
