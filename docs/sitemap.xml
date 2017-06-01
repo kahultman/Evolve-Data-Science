@@ -42,28 +42,13 @@
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/aws/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/bigdata/</loc>
     <lastmod>2016-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/bioinformatics/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/cloud/</loc>
     <priority>0</priority>
   </url>
   
@@ -86,13 +71,14 @@
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/</loc>
-    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/data-exploration/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/post/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</loc>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -117,12 +103,17 @@
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/r/</loc>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/prediction/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/rstudio/</loc>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/project/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/r/</loc>
     <priority>0</priority>
   </url>
   
@@ -138,13 +129,12 @@
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/teaching/</loc>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/visualization/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/tags/visualization/</loc>
-    <priority>0</priority>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/</loc>
   </url>
   
 </urlset>
