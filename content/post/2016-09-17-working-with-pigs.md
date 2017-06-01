@@ -1,12 +1,8 @@
 ---
-layout: post
 title: "Working with Pigs"
-modified:
-categories: blog
 excerpt: "Grunt"
 tags: [BigData]
-image:
-  feature: feature-image-data-blue.jpg
+bigimg: [{src: "/img/feature-image-data-blue.jpg"}]
 date: 2016-09-17
 ---
 

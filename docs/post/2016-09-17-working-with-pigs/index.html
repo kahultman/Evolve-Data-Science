@@ -5,12 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Hadoop Popularity</title>
-  <meta property="og:title" content="Hadoop Popularity" />
-  <meta name="twitter:title" content="Hadoop Popularity" />
-  <meta name="description" content="Exploring the popularity of Pig and Hive Pig and Hive are sometimes compared with one another for their ability to do data manipulations on a Hadoop cluster. There are some important differences. Hive is a direct implementation of the SQL language standard, which gives it a leg-up in terms of user familiarity. I wanted to see how the two compared in the number of posts on Stack Overflow a popular question/answer site for software developers.">
-  <meta property="og:description" content="Exploring the popularity of Pig and Hive Pig and Hive are sometimes compared with one another for their ability to do data manipulations on a Hadoop cluster. There are some important differences. Hive is a direct implementation of the SQL language standard, which gives it a leg-up in terms of user familiarity. I wanted to see how the two compared in the number of posts on Stack Overflow a popular question/answer site for software developers.">
-  <meta name="twitter:description" content="Exploring the popularity of Pig and Hive Pig and Hive are sometimes compared with one another for their ability to do data manipulations on a Hadoop cluster. There are some important differences. Hive …">
+  <title>Working with Pigs</title>
+  <meta property="og:title" content="Working with Pigs" />
+  <meta name="twitter:title" content="Working with Pigs" />
+  <meta name="description" content="This week I&rsquo;ve been learning about the Pig language for Hadoop distributed computing systems. This is the first of several languages that we are covering this semester that were designed as abstractions on top of MapReduce. It&rsquo;s really interesting to me how many different layers of programming can sit on top of one another and work together to make working with what is essentially machine language more human like.
+In the case of Pig, the language is called Pig Latin, and resembles SQL in several ways.">
+  <meta property="og:description" content="This week I&rsquo;ve been learning about the Pig language for Hadoop distributed computing systems. This is the first of several languages that we are covering this semester that were designed as abstractions on top of MapReduce. It&rsquo;s really interesting to me how many different layers of programming can sit on top of one another and work together to make working with what is essentially machine language more human like.
+In the case of Pig, the language is called Pig Latin, and resembles SQL in several ways.">
+  <meta name="twitter:description" content="This week I&rsquo;ve been learning about the Pig language for Hadoop distributed computing systems. This is the first of several languages that we are covering this semester that were designed as …">
   <meta name="author" content="Keith Hultman"/>
   <link href='https://kahultman.github.io/Evolve-Data-Science/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://kahultman.github.io/Evolve-Data-Science/img/avatar-icon.png" />
@@ -18,12 +20,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@keithhultman" />
   <meta name="twitter:creator" content="@keithhultman" />
-  <meta property="og:url" content="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-25-hadoop-popularity/" />
+  <meta property="og:url" content="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-17-working-with-pigs/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Evolve Data Science" />
 
   <meta name="generator" content="Hugo 0.21" />
-  <link rel="canonical" href="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-25-hadoop-popularity/" />
+  <link rel="canonical" href="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-17-working-with-pigs/" />
   <link rel="alternate" href="https://kahultman.github.io/Evolve-Data-Science/index.xml" type="application/rss+xml" title="Evolve Data Science">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -110,7 +112,7 @@
 
 
   
-    <div id="header-big-imgs" data-num-img=1 data-img-src-1="https://kahultman.github.io/img/feature-image-electrophoresis.jpg" ></div>
+    <div id="header-big-imgs" data-num-img=1 data-img-src-1="https://kahultman.github.io/img/feature-image-data-blue.jpg" ></div>
   
 
   <header class="header-section has-img">
@@ -121,11 +123,11 @@
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="post-heading">
-                <h1>Hadoop Popularity</h1>
+                <h1>Working with Pigs</h1>
                   
                   
                     <span class="post-meta">
-  Posted on September 25, 2016
+  Posted on September 17, 2016
   
 </span>
 
@@ -144,11 +146,11 @@
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
-              <h1>Hadoop Popularity</h1>
+              <h1>Working with Pigs</h1>
                 
                 
                   <span class="post-meta">
-  Posted on September 25, 2016
+  Posted on September 17, 2016
   
 </span>
 
@@ -167,65 +169,25 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <div id="exploring-the-popularity-of-pig-and-hive" class="section level2">
-<h2>Exploring the popularity of Pig and Hive</h2>
-<p>Pig and Hive are sometimes compared with one another for their ability to do data manipulations on a Hadoop cluster. There are some important differences. Hive is a direct implementation of the SQL language standard, which gives it a leg-up in terms of user familiarity. I wanted to see how the two compared in the number of posts on <a href="http://stackoverflow.com/">Stack Overflow</a> a popular question/answer site for software developers.</p>
-<p>I first found the most popular tag for the associated technologies at <a href="http://stackoverflow.com/tags">Stackoverflow</a>. Then I used the public data explorer on <a href="http://data.stackexchange.com/stackoverflow/query/440749/anonymous-feedback-votes-over-time-on-a-specific-tag?tagname=ocaml&amp;ref=survey-2016#graph">StackExchange</a> and entered the tags as queries. I then downloaded the csv file and brought it in to R for some visualizations.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</code></pre>
-<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats</code></pre>
-<pre class="r"><code>pig &lt;- read.csv(&quot;pig.csv&quot;, header = TRUE)
-hive &lt;- read.csv(&quot;hive.csv&quot;, header = TRUE)
-pighive &lt;- rbind(pig, hive) #combine the data to one dataframe
-pighive$mo &lt;- strptime(x = as.character(pighive$mo), format = &quot;%Y-%m-%d %H:%M:%S&quot;)
+        <p>This week I&rsquo;ve been learning about the Pig language for Hadoop distributed computing systems. This is the first of several languages that we are covering this semester that were designed as abstractions on top of MapReduce. It&rsquo;s really interesting to me how many different layers of programming can sit on top of one another and work together to make working with what is essentially machine language more human like.</p>
 
-ggplot(pighive, aes(mo, Total.Votes)) +
-  geom_line(aes(color = TagName)) + 
-  ggtitle(&quot;Popularity of Pig vs Hive on Stack Overflow&quot;) +
-  ylab(&quot;Tag Votes&quot;) +
-  xlab(&quot;Time&quot;)</code></pre>
-<p><img src="/Evolve-Data-Sciencepost/2016-09-25-hadoop-popularity_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>The number of posts with apache-pig as the tag has plataeued and slightly droped from its peak in 2014. Hive has gained in popularity and has more than 3x the number of posts. Seems like a clear winner for Hive here.</p>
-</div>
-<div id="a-comparison-of-all-hadoop-related-technology-popularity" class="section level2">
-<h2>A comparison of all Hadoop-related technology popularity</h2>
-<p>How do the other Hadoop-related technologies compare?</p>
-<pre class="r"><code>hadoop &lt;- read.csv(&quot;hadoop.csv&quot;, header = TRUE)
-hbase &lt;- read.csv(&quot;hbase.csv&quot;, header = TRUE)
-spark &lt;- read.csv(&quot;spark.csv&quot;, header = TRUE)
-mahout &lt;- read.csv(&quot;mahout.csv&quot;, header = TRUE)
-mapreduce &lt;- read.csv(&quot;mapreduce.csv&quot;, header = TRUE)
+<p>In the case of Pig, the language is called Pig Latin, and resembles SQL in several ways. It&rsquo;s primary purpose is to make common ETL data pipelines easier to write for MapReduce functions.</p>
 
-hadoop_all &lt;- rbind(hadoop, pig, hive, hbase, spark, mahout, mapreduce) #combine the data to one dataframe
-hadoop_all$mo &lt;- strptime(x = as.character(hadoop_all$mo), format = &quot;%Y-%m-%d %H:%M:%S&quot;)
+<p>The entire Hadoop ecosystem that has been built up on top of MapReduce seem like a natural and powerful extension, in part because of the challenge in breaking down your problem or algorithm into precise Map and Reduce functions. The abstraction allows you to continue to use familiar framing - for example, the ETL functions of Pig that are familiar to data applications on stand-alone systems.</p>
 
-ggplot(hadoop_all, aes(mo, Total.Votes)) +
-  geom_line(aes(color = TagName)) + 
-  ggtitle(&quot;Popularity of Hadoop related technologies on Stack Overflow&quot;) +
-  ylab(&quot;Tag Votes&quot;) +
-  xlab(&quot;Time&quot;)</code></pre>
-<p><img src="/Evolve-Data-Sciencepost/2016-09-25-hadoop-popularity_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Hive’s rise is completely dwarfed by the acceleration over the past year and half of Spark. Spark is tagged in twice the number of posts as the general Hadoop tag, a technology it was built upon. This has convinced me to put full effort into learning Spark going forward.</p>
-</div>
+<p>I was trying to figure out how some of my previous projects could be converted to Hadoop code. Certainly, our Grupo Bimbo project had large data sets in which simple transformations often took 15 minutes to a few hours on a single machine. Just loading the data into RAM took 30 seconds using an SSD with the fastest method for loading on R. But many of our models seem too advanced for me to implement using explicit Map / Reduce commands. I&rsquo;m sure some of the other applications built on top of Hadoop will bridge these issues. In Google&rsquo;s original <a href="http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf">MapReduce white paper</a> they make the case that many of their big data problems could be decomposed to a Map - Reduce framework. However, I wonder how many of their questions were inspired by the technology? Sort of like when given a hammer, everything looks like a nail.</p>
 
       </article>
 
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-17-working-with-pigs/" data-toggle="tooltip" data-placement="top" title="Working with Pigs">&larr; Previous Post</a>
+            <a href="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/" data-toggle="tooltip" data-placement="top" title="How to set up RStudio on AWS for a Bioinformatics class">&larr; Previous Post</a>
           </li>
         
         
           <li class="next">
-            <a href="https://kahultman.github.io/Evolve-Data-Science/post/2016-10-28-random-data-explore/" data-toggle="tooltip" data-placement="top" title="Monte Carlo of Random Correlations">Next Post &rarr;</a>
+            <a href="https://kahultman.github.io/Evolve-Data-Science/post/2016-09-25-hadoop-popularity/" data-toggle="tooltip" data-placement="top" title="Hadoop Popularity">Next Post &rarr;</a>
           </li>
         
       </ul>

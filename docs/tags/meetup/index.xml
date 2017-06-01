@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meetup on Evolve Data Science</title>
-    <link>/Evolve-Data-Science/tags/meetup/</link>
+    <link>https://kahultman.github.io/Evolve-Data-Science/tags/meetup/</link>
     <description>Recent content in Meetup on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Fri, 09 Dec 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/Evolve-Data-Science/tags/meetup/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/meetup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Enova Data Smackdown Competition</title>
-      <link>/Evolve-Data-Science/post/2016-12-09-enova-data-smackdown-competition/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-09-enova-data-smackdown-competition/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>/Evolve-Data-Science/post/2016-12-09-enova-data-smackdown-competition/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-09-enova-data-smackdown-competition/</guid>
       <description>Last night I attended a great data science meetup hosted by Enova Decisions in downtown Chicago. I’ve been to a few other data related meetups that mostly focused on talks or networking, but this one was all based around a challenging data set for participants to delve into.
 smackdown.jpg
  I heard word of the Smackdown from the fantastic Chicago R Users Group (RUG) earlier this week and was sure to register as soon as I could.</description>
