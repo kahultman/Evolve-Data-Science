@@ -62,6 +62,7 @@ pygmentCodeFences = true
 [[menu.main]]
     identifier = "Projects"
     name = "Projects"
+    url = "page/"
     weight = 2
 
 [[menu.main]]

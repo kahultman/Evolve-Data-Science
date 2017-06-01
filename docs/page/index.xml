@@ -22,23 +22,5 @@ Selected skills:
  Extensive experience in generating original research ideas, following through with vigorous literature research, experimental design and execution Expert geneticist with extensive experience in Next-Generation Sequencing and gene expression analysis Wet-lab experience includes large-scale forward genetic mutant screens and pharmacogenetic interactions using small molecule drug discovery methods Data Analytic Methods: Linear and logistic regression, supervised and unsupervised machine learning, A/B testing and hypothesis testing, and textual analysis Data Software: Proficient in R, Excel, and Perl for data analysis and model testing; proficient in creating data visualizations using Excel, ggplot, and Tableau; experience with Microsoft SQL Server for database and data warehousing Writing: Proficient in technical writing with track record of peer-reviewed publications, grant writing, and editing Presenting: Charismatic and confident public speaker with experience presenting to technical and lay audiences using Tableau and PowerPoint Other Software: Proficient in Word, Camtasia (screen recording), Photoshop, and Illustrator; general programming fluency in Perl, C, Java, and Python  He loves to rock climb whenever he gets the chance.</description>
     </item>
     
-    <item>
-      <title>How to set up RStudio on AWS for a Bioinformatics class</title>
-      <link>https://kahultman.github.io/Evolve-Data-Science/page/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/Evolve-Data-Science/page/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</guid>
-      <description>Motivations for the RStudio course server This fall is probably the most enjoyable semester I&amp;rsquo;ve ever had teaching. I had an opportunity to design and run an upper-level special topics course on bioinformatics at Elmhurst College. It&amp;rsquo;s a class I&amp;rsquo;ve always wanted to teach because for me, it&amp;rsquo;s like being able to organize a class around everything I would have wanted to know before going to graduate school for genetics.</description>
-    </item>
-    
-    <item>
-      <title>Meteorite Data Exploration</title>
-      <link>https://kahultman.github.io/Evolve-Data-Science/page/2015-09-07-meteor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/Evolve-Data-Science/page/2015-09-07-meteor/</guid>
-      <description>Meteor data exploration</description>
-    </item>
-    
   </channel>
 </rss>

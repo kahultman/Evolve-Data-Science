@@ -1,18 +1,161 @@
----
-title: "West Nile Virus in Chicago, Part 1"
-draft: true
-excerpt: "Predicting spread of West Nile Virus in Chicago"
-author: keith_hultman
-modified: 2016-12-17
-tags: [R, Project, Prediction, Data Exploration]
-bigimg: [{src: "/img/feature-image-bean.jpg"}]
-comments: true
-share: true
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>West Nile Virus in Chicago, Part 1</title>
+  <meta property="og:title" content="West Nile Virus in Chicago, Part 1" />
+  <meta name="twitter:title" content="West Nile Virus in Chicago, Part 1" />
+  <meta name="description" content="This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.
+The data is structured so there is instant gratification.">
+  <meta property="og:description" content="This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.
+The data is structured so there is instant gratification.">
+  <meta name="twitter:description" content="This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle …">
+  <meta name="author" content="Keith Hultman"/>
+  <link href='../../img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/img/avatar-icon.png" />
+  <meta name="twitter:image" content="/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@keithhultman" />
+  <meta name="twitter:creator" content="@keithhultman" />
+  <meta property="og:url" content="/page/2016-12-17-wnv-blogpost/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Evolve Data Science" />
+
+  <meta name="generator" content="Hugo 0.21" />
+  <link rel="canonical" href="../../page/2016-12-17-wnv-blogpost/" />
+  <link rel="alternate" href="../../index.xml" type="application/rss+xml" title="Evolve Data Science">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="../../css/pygment_highlights.css" />
+  <link rel="stylesheet" href="../../css/highlight.min.css" />
 
 
 
-<p>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, <a href="https://www.kaggle.com/c/predict-west-nile-virus">West Nile Virus Prediction</a>. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.</p>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../">Evolve Data Science</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="../../">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Projects" href="../../page/">Projects</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="../../page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="../../tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Evolve Data Science" href="../../">
+            <img class="avatar-img" src="../../img/avatar-icon.png" alt="Evolve Data Science" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 data-img-src-1="//img/feature-image-bean.jpg" ></div>
+  
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="page-heading">
+                <h1>West Nile Virus in Chicago, Part 1</h1>
+                  
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              <h1>West Nile Virus in Chicago, Part 1</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, <a href="https://www.kaggle.com/c/predict-west-nile-virus">West Nile Virus Prediction</a>. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.</p>
 <ol style="list-style-type: decimal">
 <li>The data is structured so there is instant gratification. Even though I had to process the raw data for missing values and the like, Kaggle competitions are nice because the data is already in table form, and available at one source. You don’t need to do too much wrangling and scraping.</li>
 <li>There is a very specific question or problem to solve. I think this is a major reason to select data sets from Kaggle and other competition sites, even if you don’t like the competition aspect. It’s fun to grab a data set from the web and look at it, but I have a hard time focusing on one problem unless there is a directive. In this way Kaggle is acting like a very good client and providing me not only with data but also a specific question. Less time wasted on figuring out the question means more time to develop models and visualizations!</li>
@@ -20,7 +163,7 @@ share: true
 </ol>
 <p>The analysis will follow an iterative approach to finding a production model for West Nile forecasting. There are several data science iterative methods, such as <a href="./images/CRISP.png">CRISP</a>, but my favorite visual for an iterative approach is from Hadley Wickham’s R for Data Science<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Additionally, this entire analysis conforms to reproducible research standards and can be reconstructed from source files available at my <a href="https://github.com/kahultman/west-nile-virus">GitHub</a> repository.</p>
 <div class="figure">
-<img src="/img/figures/WNV-data-science-explore.png" alt="Wickham’s iterative approach to data science" />
+<img src="../../img/figures/WNV-data-science-explore.png" alt="Wickham’s iterative approach to data science" />
 <p class="caption">Wickham’s iterative approach to data science</p>
 </div>
 <p>The goal for this project is to develop a predictive model that will forecast the probability of WNV presence in 138 mosquito traps around Chicago over the course of a season. WNV is a communicable disease that is spread through its most common vector, mosquitoes. Most people infected with WNV develop no symptoms, but 1% will develop neurological symptoms including headache, high fever, neck stiffness, disorientation, coma, tremors, seizures, or paralysis<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. There are no medical treatments or cures for WNV, so preventative measures are required to reduce infection to the human population. Local community methods of mosquito control include reduction of larval habitats and applying insecticides targeting larvae or adult mosquitoes.</p>
@@ -56,14 +199,14 @@ ggplot(train, aes(x=WnvPresent, y=NumMosquitos)) +
   geom_jitter(aes(color=WnvPresent)) + 
   ggtitle(&quot;Number of mosquitoes in West Nile \nVirus negative and positive traps&quot;) + 
   xlab(&quot;West Nile Virus present in trap&quot;) + ylab(&quot;Number of mosquitoes in trap&quot;)</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Based on this initial data exploration, I will first try and develop a model that predicts the number of mosquitoes in each trap and then use that predicted value as a variable in a model for WNV presence. For predicting the number of mosquitoes, I will first attempt using weather variables and weekly historic averages. Before modeling, I examined scatterplots of various input variables against mosquito counts, like the graph below comparing temperature to mosquito counts.</p>
 <pre class="r"><code>ggplot(train, aes(x=Tavg, y=Mosq_count)) + 
   geom_jitter() + 
   geom_smooth(method = lm) + 
   ggtitle(&quot;Number of mosquitoes vs average daily temperature&quot;) + 
   xlab(&quot;Average daily temperature, degree F&quot;) + ylab(&quot;Number of mosquitoes per trap&quot;)</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="tidying-and-transforming-data" class="section level2">
 <h2>Tidying and transforming data</h2>
@@ -161,7 +304,7 @@ summary(lm1)</code></pre>
   xlab(&quot;Predicted number of mosquitoes in training set&quot;) + 
   ylab(&quot;Residual error (Actual - Predicted)&quot;) + 
   stat_smooth(method=lm)</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The residual plot appears to show bias in overestimating mosquitoes at the low end and underestimating at the high end. However, the trend shows that this is indeed zero. The odd shape is due to the fact that our actual values are bounded from 1-50. Let’s now include historical averages for each week in the year. We can also remove some variables that were not significantly informative in the previous model.</p>
 <pre class="r"><code>lm_variables2 &lt;- c(&quot;WeekAvgMos&quot;,
                   &quot;Tavg&quot;,
@@ -232,7 +375,7 @@ hist(Mosq_number$Mosq_count, col = &quot;lightblue&quot;, main = &quot;Histogram
 qqnorm(log2(Mosq_number$Mosq_count), main = &quot;QQPlot Normal distribution&quot;)
 hist(log2(Mosq_number$Mosq_count), col = &quot;lightblue&quot;, main = &quot;Histogram log2 mosquito number&quot;)
 qqplot(poissonlist, log2(train$Mosq_count), main = &quot;QQPlot Poisson with 0 removed&quot;)</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>par(mfcol = c(1,1))</code></pre>
 </div>
 <div id="modeling-poisson-regression" class="section level2">
@@ -307,7 +450,7 @@ ggmap(chicago) + geom_density2d(data = wnpositive, aes(x = Longitude, y = Latitu
   ggtitle(&quot;Heat map of West Nile Virus positive traps&quot;) + 
   xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;) +
   geom_point(data = traps, aes(x = Longitude, y = Latitude), shape = 4)</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>It’s clear from the density map that there are hotspot traps where West Nile is more common than others, and this appears to influence nearby traps.</p>
 <p>Now that we have a good 2-dimensional view of the occurence of WNV, I next wanted to get a sense of how this pattern of West Nile Virus changed over time in relation to the geography. I did this by creating an animated version of this map using a new R package called gganimate. I chose to remove the background map of Chicago to get a clearer visual of positive vs negative cases. This animation uses the new gganimate package.</p>
 <pre class="r"><code>library(gganimate)
@@ -324,7 +467,7 @@ map_mosq &lt;- ggplot(train, aes(x=Longitude, y=Latitude,
 
 animated_map_mosq &lt;- gganimate(map_mosq, interval=0.5)
 animated_map_mosq</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-1.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-2.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-3.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-4.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-5.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-6.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-7.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-8.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-9.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-10.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-11.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-12.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-13.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-14.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-15.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-16.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-17.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-18.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-19.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-20.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-21.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-22.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-23.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-24.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-25.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-26.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-27.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-28.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-29.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-30.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-31.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-32.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-33.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-34.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-35.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-36.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-37.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-38.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-39.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-40.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-41.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-42.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-43.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-44.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-45.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-46.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-47.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-48.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-49.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-50.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-51.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-52.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-53.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-54.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-55.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-56.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-57.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-58.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-59.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-60.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-61.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-62.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-63.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-64.png" width="672" /><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-65.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-1.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-2.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-3.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-4.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-5.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-6.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-7.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-8.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-9.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-10.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-11.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-12.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-13.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-14.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-15.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-16.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-17.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-18.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-19.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-20.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-21.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-22.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-23.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-24.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-25.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-26.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-27.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-28.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-29.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-30.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-31.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-32.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-33.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-34.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-35.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-36.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-37.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-38.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-39.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-40.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-41.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-42.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-43.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-44.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-45.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-46.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-47.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-48.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-49.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-50.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-51.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-52.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-53.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-54.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-55.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-56.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-57.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-58.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-59.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-60.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-61.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-62.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-63.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-64.png" width="672" /><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-15-65.png" width="672" /></p>
 <p>There are various ways to incorporate geography into a predictive model. I could incorporate the trap id in the model or I could incorporate the longitude and latitude for very high precision. The longitude/latitude method would require a decision tree or other model that allows for breaking up or clustering the locations in some non-linear way.</p>
 <p>Instead, I am choosing to group the traps into clusters and include the cluster as a modeling parameter. The reasoning for this is that suspect that the true risk based on geography has a much lower actual precision than our ability to define latitude or longitude.</p>
 </div>
@@ -336,7 +479,7 @@ load(&quot;west-nile/test_geo.RData&quot;)
 load(&quot;west-nile/trap_geo_hot.RData&quot;)
 
 ggplot(trap_geo_hot, aes(Longitude, Latitude, color = geo.hot.cl)) + geom_point()</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <pre class="r"><code>ggmap(chicago) + geom_density2d(data = wnpositive, aes(x = Longitude, y = Latitude), size = 0.3) + 
   stat_density2d(data = wnpositive, aes(x = Longitude, y = Latitude, fill = ..level.., alpha = ..level..), size = 0.01, 
     bins = 16, geom = &quot;polygon&quot;) + 
@@ -345,7 +488,7 @@ ggplot(trap_geo_hot, aes(Longitude, Latitude, color = geo.hot.cl)) + geom_point(
   ggtitle(&quot;Heat map of West Nile Virus positive traps&quot;) + 
   xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;) +
   geom_point(data = trap_geo_hot, aes(x = Longitude, y = Latitude, shape = geo.hot.cl)) + scale_shape_discrete(name = &quot;Trap Cluster&quot;)</code></pre>
-<p><img src="/page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="../../page/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Now that I have some geographical clusters for each trap and a good handle on predicting mosquito number, I can use those as input variables for the ultimate target, WNV probability. I will be comparing several different models for my next post.</p>
 </div>
 <div id="bibliography" class="section level1">
@@ -358,3 +501,77 @@ ggplot(trap_geo_hot, aes(Longitude, Latitude, color = geo.hot.cl)) + geom_point(
 <li id="fn2"><p><a href="https://www.cdc.gov/westnile/index.html">CDC West Nile page</a><a href="#fnref2">↩</a></p></li>
 </ol>
 </div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        
+          <li class="next">
+            <a href="../../page/2015-09-07-meteor/" data-toggle="tooltip" data-placement="top" title="Meteorite Data Exploration">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="../../index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Keith Hultman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="../../">Evolve Data Science</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.21</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+  </body>
+</html>
+
