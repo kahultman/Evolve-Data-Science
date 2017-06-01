@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>A Shiny App for the Biology Alumni Survey</title>
+  <meta property="og:title" content="A Shiny App for the Biology Alumni Survey" />
+  <meta name="twitter:title" content="A Shiny App for the Biology Alumni Survey" />
+  <meta name="description" content="I recently built an interactive dashboard for the Elmhurst Biology Department’s alumni survey.
+Background Our biology department at Elmhurst is highly motivated to improve our teaching methods and styles. Currently, we are updating our introductory course curriculum with adding more active learning, standardizing laboratory modules, and developing central themes to introduce students to the field of biology and the scientific method.
+As part of this curriculum revision, we recently reached out to alumni through social media and asked them to evaluate their training here at Elmhurst in light of their current career path.">
+  <meta property="og:description" content="I recently built an interactive dashboard for the Elmhurst Biology Department’s alumni survey.
+Background Our biology department at Elmhurst is highly motivated to improve our teaching methods and styles. Currently, we are updating our introductory course curriculum with adding more active learning, standardizing laboratory modules, and developing central themes to introduce students to the field of biology and the scientific method.
+As part of this curriculum revision, we recently reached out to alumni through social media and asked them to evaluate their training here at Elmhurst in light of their current career path.">
+  <meta name="twitter:description" content="I recently built an interactive dashboard for the Elmhurst Biology Department’s alumni survey.
+Background Our biology department at Elmhurst is highly motivated to improve our teaching methods and …">
+  <meta name="author" content="Keith Hultman"/>
+  <link href='/blogdown2/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/blogdown2/img/avatar-icon.png" />
+  <meta name="twitter:image" content="/blogdown2/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@keithhultman" />
+  <meta name="twitter:creator" content="@keithhultman" />
+  <meta property="og:url" content="/blogdown2/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Keith Hultman" />
+
+  <meta name="generator" content="Hugo 0.21" />
+  <link rel="canonical" href="/blogdown2/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/" />
+  <link rel="alternate" href="/blogdown2/index.xml" type="application/rss+xml" title="Keith Hultman">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/blogdown2/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="/blogdown2/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="/blogdown2/css/highlight.min.css" />
+
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/blogdown2">Keith Hultman</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/blogdown2">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Projects" href="/blogdown2">Projects</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/blogdown2/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/blogdown2/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Keith Hultman" href="/blogdown2">
+            <img class="avatar-img" src="/blogdown2/img/avatar-icon.png" alt="Keith Hultman" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>A Shiny App for the Biology Alumni Survey</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on March 8, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>I recently built an interactive dashboard for the <a href="http://52.54.16.230/shiny/keith/SurveyApp/">Elmhurst Biology Department’s alumni survey.</a></p>
+<div id="background" class="section level3">
+<h3>Background</h3>
+<p>Our biology department at Elmhurst is highly motivated to improve our teaching methods and styles. Currently, we are updating our introductory course curriculum with adding more active learning, standardizing laboratory modules, and developing central themes to introduce students to the field of biology and the scientific method.</p>
+<p>As part of this curriculum revision, we recently reached out to alumni through social media and asked them to evaluate their training here at Elmhurst in light of their current career path. The survey was conducted in collaboration with a Master’s program course by a team including Whitney Carey, Priya Devineni, Nicole Kasmer and Alex Severson. Their original report showed that alumni who responded to the survey are generally very happy with EC Biology’s curriculum and ability to prepare them for graduate studies and their career.</p>
+<p>Although the original report did an excellent job in examining the responses in aggregate, there was not much analysis of the relationship between the different types of responses. I further analyzed the responses to answer several questions I had about the data. But I also wanted my colleagues to ask their own questions and perhaps they would find something I might miss. I’ve been wanting to build an R Shiny app, and this was a perfect excuse for it.</p>
+<p><a href="http://52.54.16.230/shiny/keith/SurveyApp/">The EC Biology Survey Shiny App</a> lets them filter according to different graduation years and career fields and then visualize how those groups rated our curriculum. One surprising result for me was that transfer students seemed to rank our curriculum quite high compared to those who started their education here. This could be because they were comparing our curriculum positively to the school they transfered from. Or, perhaps we are on the right track in updating our introductory courses for our Freshmen and Sophomores, as students who took those courses ranked us lower. The shiny app also uses some text analysis (using the tidytext R package) in order to rank the most common curriculum requests from these groups, which I find to be really useful.</p>
+</div>
+<div id="major-curriculumprogram-suggestions-by-alumni" class="section level2">
+<h2>Major Curriculum/Program Suggestions by Alumni</h2>
+<p>The following suggestions were popular with all alumni but especially with alumni who remained in biology and medical fields.</p>
+<ul>
+<li>Offer, or continue to offer, <strong>advanced human health-related courses</strong> (nutrition, pathology, pharmacology, medical physiology)</li>
+<li><strong>More career-focused advising</strong>, with a greater emphasis on job opportunities for biology majors outside of advanced degrees.</li>
+<li>Incorporate updated <strong>lab technologies</strong> in lab sciences coursework where possible</li>
+<li>Continue to offer <strong>Bioinformatics</strong> and Biostatistics as an essential skill for the modern biologist</li>
+</ul>
+</div>
+<div id="minor-curriculumprogram-suggestions" class="section level2">
+<h2>Minor Curriculum/Program Suggestions</h2>
+<ul>
+<li>Invite speakers for biology talks at least once a semester</li>
+<li>Invite Biology and Medical Alumni for honorary award and talks on campus</li>
+<li>Develop a J-term field research based trip</li>
+<li>Encourage a student run journal club (BBB?) with faculty participation</li>
+<li>Add emphasis of epigenetics into (Advanced?) Genetics course</li>
+</ul>
+<p>You can check it out <a href="http://52.54.16.230/shiny/keith/SurveyApp/">here</a> for yourself, and let me know what you think.</p>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="/blogdown2/post/2016-12-09-enova-data-smackdown-competition/" data-toggle="tooltip" data-placement="top" title="Enova Data Smackdown Competition">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:keithh@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/kahultman" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/keithhultman" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/keithhultman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/XXXXXXX/username" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/user/keithh@gmail.com" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="/blogdown2/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Keith Hultman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/blogdown2">Keith Hultman</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.21</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/blogdown2/js/main.js"></script>
+<script src="/blogdown2/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+  </body>
+</html>
+

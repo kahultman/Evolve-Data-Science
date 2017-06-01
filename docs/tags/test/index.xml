@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on Keith Hultman</title>
+    <link>/blogdown2/tags/test/</link>
+    <description>Recent content in Test on Keith Hultman</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
+    <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
+    <lastBuildDate>Wed, 31 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/blogdown2/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>This is a test post</title>
+      <link>/blogdown2/post/test/</link>
+      <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>/blogdown2/post/test/</guid>
+      <description>Testing 1,2,3</description>
+    </item>
+    
+  </channel>
+</rss>

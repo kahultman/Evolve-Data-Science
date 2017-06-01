@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/blogdown2/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/post/2016-12-09-enova-data-smackdown-competition/</loc>
+    <lastmod>2016-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/post/2016-09-25-hadoop-popularity/</loc>
+    <lastmod>2016-09-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/post/2016-09-17-working-with-pigs/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</loc>
+    <lastmod>2016-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/page/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/categories/articles/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/aws/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/bigdata/</loc>
+    <lastmod>2016-09-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/bioinformatics/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/categories/blog/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/categories/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/cloud/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/competition/</loc>
+    <lastmod>2016-12-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/data/</loc>
+    <lastmod>2016-12-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/data-exploration/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/page/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</loc>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/meetup/</loc>
+    <lastmod>2016-12-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/page/2015-09-07-meteor/</loc>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/page/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/post/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/prediction/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/project/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/r/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/rstudio/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/tableau/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/</loc>
+    <lastmod>2016-09-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/teaching/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/tags/visualization/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blogdown2/page/2016-12-17-wnv-blogpost/</loc>
+  </url>
+  
+</urlset>
