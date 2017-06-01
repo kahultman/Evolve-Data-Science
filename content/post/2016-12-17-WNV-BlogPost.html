@@ -50,14 +50,14 @@ ggplot(train, aes(x=WnvPresent, y=NumMosquitos)) +
   geom_jitter(aes(color=WnvPresent)) + 
   ggtitle(&quot;Number of mosquitoes in West Nile \nVirus negative and positive traps&quot;) + 
   xlab(&quot;West Nile Virus present in trap&quot;) + ylab(&quot;Number of mosquitoes in trap&quot;)</code></pre>
-<p><img src="/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Based on this initial data exploration, I will first try and develop a model that predicts the number of mosquitoes in each trap and then use that predicted value as a variable in a model for WNV presence. For predicting the number of mosquitoes, I will first attempt using weather variables and weekly historic averages. Before modeling, I examined scatterplots of various input variables against mosquito counts, like the graph below comparing temperature to mosquito counts.</p>
 <pre class="r"><code>ggplot(train, aes(x=Tavg, y=Mosq_count)) + 
   geom_jitter() + 
   geom_smooth(method = lm) + 
   ggtitle(&quot;Number of mosquitoes vs average daily temperature&quot;) + 
   xlab(&quot;Average daily temperature, degree F&quot;) + ylab(&quot;Number of mosquitoes per trap&quot;)</code></pre>
-<p><img src="/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="tidying-and-transforming-data" class="section level2">
 <h2>Tidying and transforming data</h2>
@@ -155,7 +155,7 @@ summary(lm1)</code></pre>
   xlab(&quot;Predicted number of mosquitoes in training set&quot;) + 
   ylab(&quot;Residual error (Actual - Predicted)&quot;) + 
   stat_smooth(method=lm)</code></pre>
-<p><img src="/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The residual plot appears to show bias in overestimating mosquitoes at the low end and underestimating at the high end. However, the trend shows that this is indeed zero. The odd shape is due to the fact that our actual values are bounded from 1-50. Let’s now include historical averages for each week in the year. We can also remove some variables that were not significantly informative in the previous model.</p>
 <pre class="r"><code>lm_variables2 &lt;- c(&quot;WeekAvgMos&quot;,
                   &quot;Tavg&quot;,
@@ -226,7 +226,7 @@ hist(Mosq_number$Mosq_count, col = &quot;lightblue&quot;, main = &quot;Histogram
 qqnorm(log2(Mosq_number$Mosq_count), main = &quot;QQPlot Normal distribution&quot;)
 hist(log2(Mosq_number$Mosq_count), col = &quot;lightblue&quot;, main = &quot;Histogram log2 mosquito number&quot;)
 qqplot(poissonlist, log2(train$Mosq_count), main = &quot;QQPlot Poisson with 0 removed&quot;)</code></pre>
-<p><img src="/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>par(mfcol = c(1,1))</code></pre>
 </div>
 <div id="modeling-poisson-regression" class="section level2">
@@ -301,7 +301,7 @@ ggmap(chicago) + geom_density2d(data = wnpositive, aes(x = Longitude, y = Latitu
   ggtitle(&quot;Heat map of West Nile Virus positive traps&quot;) + 
   xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;) +
   geom_point(data = traps, aes(x = Longitude, y = Latitude), shape = 4)</code></pre>
-<p><img src="/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>It’s clear from the density map that there are hotspot traps where West Nile is more common than others, and this appears to influence nearby traps.</p>
 <p>Now that we have a good 2-dimensional view of the occurence of WNV, I next wanted to get a sense of how this pattern of West Nile Virus changed over time in relation to the geography. I did this by creating an animated version of this map using a new R package called gganimate. I chose to remove the background map of Chicago to get a clearer visual of positive vs negative cases. This animation uses the new gganimate package.</p>
 <pre class="r"><code>library(gganimate)
@@ -333,7 +333,7 @@ load(&quot;west-nile/test_geo.RData&quot;)
 load(&quot;west-nile/trap_geo_hot.RData&quot;)
 
 ggplot(trap_geo_hot, aes(Longitude, Latitude, color = geo.hot.cl)) + geom_point()</code></pre>
-<p><img src="/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <pre class="r"><code>ggmap(chicago) + geom_density2d(data = wnpositive, aes(x = Longitude, y = Latitude), size = 0.3) + 
   stat_density2d(data = wnpositive, aes(x = Longitude, y = Latitude, fill = ..level.., alpha = ..level..), size = 0.01, 
     bins = 16, geom = &quot;polygon&quot;) + 
@@ -342,7 +342,7 @@ ggplot(trap_geo_hot, aes(Longitude, Latitude, color = geo.hot.cl)) + geom_point(
   ggtitle(&quot;Heat map of West Nile Virus positive traps&quot;) + 
   xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;) +
   geom_point(data = trap_geo_hot, aes(x = Longitude, y = Latitude, shape = geo.hot.cl)) + scale_shape_discrete(name = &quot;Trap Cluster&quot;)</code></pre>
-<p><img src="/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-12-17-WNV-BlogPost_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Now that I have some geographical clusters for each trap and a good handle on predicting mosquito number, I can use those as input variables for the ultimate target, WNV probability. I will be comparing several different models for my next post.</p>
 </div>
 <div id="bibliography" class="section level1">
