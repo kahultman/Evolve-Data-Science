@@ -197,6 +197,21 @@ ggplot(pighive, aes(mo, Total.Votes)) +
 <div id="a-comparison-of-all-hadoop-related-technology-popularity" class="section level2">
 <h2>A comparison of all Hadoop-related technology popularity</h2>
 <p>How do the other Hadoop-related technologies compare?</p>
+<pre class="r"><code>hadoop &lt;- read.csv(&quot;~/github/blogdown2/data/hadoop.csv&quot;, header = TRUE)
+hbase &lt;- read.csv(&quot;~/github/blogdown2/data/hbase.csv&quot;, header = TRUE)
+spark &lt;- read.csv(&quot;~/github/blogdown2/data/spark.csv&quot;, header = TRUE)
+mahout &lt;- read.csv(&quot;~/github/blogdown2/data/mahout.csv&quot;, header = TRUE)
+mapreduce &lt;- read.csv(&quot;~/github/blogdown2/data/mapreduce.csv&quot;, header = TRUE)
+
+hadoop_all &lt;- rbind(hadoop, pig, hive, hbase, spark, mahout, mapreduce) #combine the data to one dataframe
+hadoop_all$mo &lt;- strptime(x = as.character(hadoop_all$mo), format = &quot;%Y-%m-%d %H:%M:%S&quot;)
+
+ggplot(hadoop_all, aes(mo, Total.Votes)) +
+  geom_line(aes(color = TagName)) + 
+  ggtitle(&quot;Popularity of Hadoop related technologies on Stack Overflow&quot;) +
+  ylab(&quot;Tag Votes&quot;) +
+  xlab(&quot;Time&quot;)</code></pre>
+<p><img src="/blogdown2post/2016-09-25-hadoop-popularity_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Hive’s rise is completely dwarfed by the acceleration over the past year and half of Spark. Spark is tagged in twice the number of posts as the general Hadoop tag, a technology it was built upon. This has convinced me to put full effort into learning Spark going forward.</p>
 </div>
 

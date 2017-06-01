@@ -35,13 +35,12 @@ The number of posts with apache-pig as the tag has plataeued and slightly droped
 
 How do the other Hadoop-related technologies compare? 
 
-```{r, eval=FALSE, include=FALSE}
-
-hadoop <- read.csv("data/hadoop.csv", header = TRUE)
-hbase <- read.csv("data/hbase.csv", header = TRUE)
-spark <- read.csv("data/spark.csv", header = TRUE)
-mahout <- read.csv("data/mahout.csv", header = TRUE)
-mapreduce <- read.csv("data/mapreduce.csv", header = TRUE)
+```{r}
+hadoop <- read.csv("~/github/blogdown2/data/hadoop.csv", header = TRUE)
+hbase <- read.csv("~/github/blogdown2/data/hbase.csv", header = TRUE)
+spark <- read.csv("~/github/blogdown2/data/spark.csv", header = TRUE)
+mahout <- read.csv("~/github/blogdown2/data/mahout.csv", header = TRUE)
+mapreduce <- read.csv("~/github/blogdown2/data/mapreduce.csv", header = TRUE)
 
 hadoop_all <- rbind(hadoop, pig, hive, hbase, spark, mahout, mapreduce) #combine the data to one dataframe
 hadoop_all$mo <- strptime(x = as.character(hadoop_all$mo), format = "%Y-%m-%d %H:%M:%S")
