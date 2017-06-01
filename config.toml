@@ -1,7 +1,7 @@
 baseurl = "https://kahultman.github.io/blogdown2"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
-title = "Keith Hultman"
+title = "Evolve Data Science"
 theme = "beautifulhugo"
 publishDir = "docs"
 metaDataFormat = "yaml"
@@ -11,7 +11,7 @@ pygmentCodeFences = true
 #googleAnalytics = "XXX"
 
 [Params]
-  subtitle = "A data science portfolio of projects and thoughts"
+  subtitle = "A data science blog by Keith Hultman"
   logo = "img/avatar-icon.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
@@ -39,10 +39,10 @@ pygmentCodeFences = true
 #  reddit = "username"
   linkedin = "keithhultman"
 #  xing = "username"
-  stackoverflow = "users/XXXXXXX/username"
+#  stackoverflow = "users/XXXXXXX/username"
 #  snapchat = "username"
 #  instagram = "username"
-  youtube = "user/keithh@gmail.com" # or channel/channelname
+  youtube = "user/Hypatio" # or channel/channelname
 #  soundcloud = "username"
 #  spotify = "username"
 #  bandcamp = "username"
