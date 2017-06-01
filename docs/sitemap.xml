@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/</loc>
+    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-09-enova-data-smackdown-competition/</loc>
     <lastmod>2016-12-09T00:00:00+00:00</lastmod>
   </url>
@@ -33,11 +38,17 @@
   </url>
   
   <url>
+    <loc>https://kahultman.github.io/Evolve-Data-Science/post/2015-09-07-meteor/</loc>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/page/about/</loc>
   </url>
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/categories/articles/</loc>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -49,6 +60,7 @@
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/categories/</loc>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -72,6 +84,7 @@
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/data-exploration/</loc>
+    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -88,10 +101,6 @@
   </url>
   
   <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/post/2015-09-07-meteor/</loc>
-  </url>
-  
-  <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/page/</loc>
     <priority>0</priority>
   </url>
@@ -104,21 +113,25 @@
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/prediction/</loc>
+    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/project/</loc>
+    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/r/</loc>
+    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/tableau/</loc>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -130,11 +143,8 @@
   
   <url>
     <loc>https://kahultman.github.io/Evolve-Data-Science/tags/visualization/</loc>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/</loc>
   </url>
   
 </urlset>

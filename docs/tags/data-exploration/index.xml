@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
+    <lastBuildDate>Sat, 17 Dec 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/data-exploration/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +15,7 @@
     <item>
       <title>West Nile Virus in Chicago, Part 1</title>
       <link>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/</guid>
       <description>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.

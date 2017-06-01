@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
+    <lastBuildDate>Mon, 07 Sep 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/categories/articles/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +15,7 @@
     <item>
       <title>Meteorite Data Exploration</title>
       <link>https://kahultman.github.io/Evolve-Data-Science/post/2015-09-07-meteor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>https://kahultman.github.io/Evolve-Data-Science/post/2015-09-07-meteor/</guid>
       <description>Meteor data exploration</description>
