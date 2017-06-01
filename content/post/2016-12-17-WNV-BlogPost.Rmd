@@ -18,7 +18,7 @@ This project will explore and analyze a dataset for West Nile Virus (WNV) detect
 
 The analysis will follow an iterative approach to finding a production model for West Nile forecasting. There are several data science iterative methods, such as [CRISP](./images/CRISP.png), but my favorite visual for an iterative approach is from Hadley Wickham's R for Data Science[^1]. Additionally, this entire analysis conforms to reproducible research standards and can be reconstructed from source files available at my [GitHub](https://github.com/kahultman/west-nile-virus) repository. 
 
-![Wickham's iterative approach to data science](/img/figures/WNV-data-science-explore.png)
+![Wickham's iterative approach to data science](../../img/figures/WNV-data-science-explore.png)
 
 The goal for this project is to develop a predictive model that will forecast the probability of WNV presence in 138 mosquito traps around Chicago over the course of a season. WNV is a communicable disease that is spread through its most common vector, mosquitoes. Most people infected with WNV develop no symptoms, but 1% will develop neurological symptoms including headache, high fever, neck stiffness, disorientation, coma, tremors, seizures, or paralysis[^2]. There are no medical treatments or cures for WNV, so preventative measures are required to reduce infection to the human population. Local community methods of mosquito control include reduction of larval habitats and applying insecticides targeting larvae or adult mosquitoes.  
 

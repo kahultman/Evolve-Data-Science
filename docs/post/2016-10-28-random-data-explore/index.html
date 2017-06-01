@@ -56,7 +56,7 @@
         
           
             <li>
-              <a title="Blog" href="../../Evolve-Data-Science/">Blog</a>
+              <a title="Blog" href="/Evolve-Data-Science/">Blog</a>
             </li>
           
         
@@ -65,9 +65,9 @@
               <a class="navlinks-parent" href="javascript:void(0)">Projects</a>
               <div class="navlinks-children">
                 
-                  <a href="../../Evolve-Data-Science/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/">West Nile Virus</a>
+                  <a href="/Evolve-Data-Science/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/">West Nile Virus</a>
                 
-                  <a href="../../Evolve-Data-Science/Evolve-Data-Science/post/2015-09-07-meteor">Meteor Data Exploration</a>
+                  <a href="/Evolve-Data-Science/Evolve-Data-Science/post/2015-09-07-meteor">Meteor Data Exploration</a>
                 
               </div>
             </li>
@@ -75,13 +75,13 @@
         
           
             <li>
-              <a title="About" href="../../Evolve-Data-Science/page/about/">About</a>
+              <a title="About" href="/Evolve-Data-Science/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../Evolve-Data-Science/tags">Tags</a>
+              <a title="Tags" href="/Evolve-Data-Science/tags">Tags</a>
             </li>
           
         
@@ -182,7 +182,7 @@
 library(corrplot)
 randcorr &lt;- cor(randata)
 corrplot(randcorr, method = &quot;circle&quot;)</code></pre>
-<p><img src="../../post/2016-10-28-random-data-explore_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-10-28-random-data-explore_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>With 20 features and 1000 observations for each feature we don’t see many features that have a high correlation. The highest correlation value, in either positive or negative direction is:</p>
 <pre class="r"><code>randcorr[randcorr == 1] &lt;- 0
 max(abs(randcorr))</code></pre>
@@ -234,7 +234,7 @@ library(caret)</code></pre>
 highlyCorrelated &lt;- c(highlyCorrelated, hc)
 trandata_high &lt;- cor(trandata[,highlyCorrelated])
 corrplot(trandata_high, method = &quot;circle&quot;)</code></pre>
-<p><img src="../../post/2016-10-28-random-data-explore_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/Evolve-Data-Science/post/2016-10-28-random-data-explore_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <div id="and-knowing-is-half-the-battle" class="section level3">
 <h3>And knowing is half the battle!</h3>
 <p>Here we can see several strong correlations between these columns. Strong positive correlations are dark blue and strong negative correlations are dark red. This Monte Carlo simulation shows how easy it is to find very strong correlations in a wide and shallow data set even from completely random numbers.</p>
