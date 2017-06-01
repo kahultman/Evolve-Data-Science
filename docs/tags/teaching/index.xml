@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Teaching on Evolve Data Science</title>
-    <link>/Evolve-Data-Science/tags/teaching/</link>
+    <link>https://kahultman.github.io/Evolve-Data-Science/tags/teaching/</link>
     <description>Recent content in Teaching on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     
-	<atom:link href="/Evolve-Data-Science/tags/teaching/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/teaching/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to set up RStudio on AWS for a Bioinformatics class</title>
-      <link>/Evolve-Data-Science/page/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/page/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>/Evolve-Data-Science/page/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/page/2016-09-23-how-to-set-up-rstudio-on-aws-for-bioinformatics-class/</guid>
       <description>Motivations for the RStudio course server This fall is probably the most enjoyable semester I&amp;rsquo;ve ever had teaching. I had an opportunity to design and run an upper-level special topics course on bioinformatics at Elmhurst College. It&amp;rsquo;s a class I&amp;rsquo;ve always wanted to teach because for me, it&amp;rsquo;s like being able to organize a class around everything I would have wanted to know before going to graduate school for genetics.</description>
     </item>
     
