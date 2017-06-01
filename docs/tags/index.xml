@@ -2,148 +2,148 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Evolve Data Science</title>
-    <link>https://kahultman.github.io/blogdown2/tags/</link>
+    <link>https://kahultman.github.io/Evolve-Data-Science/tags/</link>
     <description>Recent content in Tags on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Sun, 25 Sep 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://kahultman.github.io/blogdown2/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Aws</title>
-      <link>https://kahultman.github.io/blogdown2/tags/aws/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/aws/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/aws/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Bigdata</title>
-      <link>https://kahultman.github.io/blogdown2/tags/bigdata/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/bigdata/</link>
       <pubDate>Sun, 25 Sep 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/bigdata/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/bigdata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Bioinformatics</title>
-      <link>https://kahultman.github.io/blogdown2/tags/bioinformatics/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/bioinformatics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/bioinformatics/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/bioinformatics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cloud</title>
-      <link>https://kahultman.github.io/blogdown2/tags/cloud/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/cloud/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/cloud/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Competition</title>
-      <link>https://kahultman.github.io/blogdown2/tags/competition/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/competition/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/competition/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/competition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data</title>
-      <link>https://kahultman.github.io/blogdown2/tags/data/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/data/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/data/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Exploration</title>
-      <link>https://kahultman.github.io/blogdown2/tags/data-exploration/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/data-exploration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/data-exploration/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/data-exploration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Meetup</title>
-      <link>https://kahultman.github.io/blogdown2/tags/meetup/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/meetup/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/meetup/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/meetup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Prediction</title>
-      <link>https://kahultman.github.io/blogdown2/tags/prediction/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/prediction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/prediction/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/prediction/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project</title>
-      <link>https://kahultman.github.io/blogdown2/tags/project/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/project/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://kahultman.github.io/blogdown2/tags/r/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/r/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/r/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rstudio</title>
-      <link>https://kahultman.github.io/blogdown2/tags/rstudio/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/rstudio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/rstudio/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/rstudio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tableau</title>
-      <link>https://kahultman.github.io/blogdown2/tags/tableau/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/tableau/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/tableau/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/tableau/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Teaching</title>
-      <link>https://kahultman.github.io/blogdown2/tags/teaching/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/teaching/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/teaching/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/teaching/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization</title>
-      <link>https://kahultman.github.io/blogdown2/tags/visualization/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/tags/visualization/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/tags/visualization/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/tags/visualization/</guid>
       <description></description>
     </item>
     

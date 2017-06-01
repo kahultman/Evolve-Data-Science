@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Visualization on Evolve Data Science</title>
-    <link>https://kahultman.github.io/blogdown2/tags/visualization/</link>
+    <link>https://kahultman.github.io/Evolve-Data-Science/tags/visualization/</link>
     <description>Recent content in Visualization on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     
-	<atom:link href="https://kahultman.github.io/blogdown2/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Meteorite Data Exploration</title>
-      <link>https://kahultman.github.io/blogdown2/page/2015-09-07-meteor/</link>
+      <link>https://kahultman.github.io/Evolve-Data-Science/page/2015-09-07-meteor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/blogdown2/page/2015-09-07-meteor/</guid>
+      <guid>https://kahultman.github.io/Evolve-Data-Science/page/2015-09-07-meteor/</guid>
       <description>Meteor data exploration</description>
     </item>
     
