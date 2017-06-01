@@ -2,7 +2,6 @@
 date = "2016-09-07"
 title = "How to set up RStudio on AWS for a Bioinformatics class"
 author = "Keith Hultman"
-
 +++
 
 ## Motivations for the RStudio course server
