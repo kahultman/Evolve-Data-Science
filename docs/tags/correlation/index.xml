@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Correlation on Evolve Data Science</title>
-    <link>https://kahultman.github.io/Evolve-Data-Science/tags/correlation/</link>
+    <link>https://evolvedatascience.com/tags/correlation/</link>
     <description>Recent content in Correlation on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Fri, 28 Oct 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/correlation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://evolvedatascience.com/tags/correlation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Monte Carlo of Random Correlations</title>
-      <link>https://kahultman.github.io/Evolve-Data-Science/post/2016-10-28-random-data-explore/</link>
+      <link>https://evolvedatascience.com/post/2016-10-28-random-data-explore/</link>
       <pubDate>Fri, 28 Oct 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/Evolve-Data-Science/post/2016-10-28-random-data-explore/</guid>
+      <guid>https://evolvedatascience.com/post/2016-10-28-random-data-explore/</guid>
       <description>Exploring correlations of random numbers When working with big data you need to be more aware of statistical outliers than you do with more typical data sizes. Basic statistical tests like a Student’s t-test or Pearson correlation are acceptable when you only test a few relationships in a small data set. But when you examine the correlation with thousands of columns of data, you are bound to find several that are strongly correlated.</description>
     </item>
     

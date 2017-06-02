@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project on Evolve Data Science</title>
-    <link>https://kahultman.github.io/Evolve-Data-Science/tags/project/</link>
+    <link>https://evolvedatascience.com/tags/project/</link>
     <description>Recent content in Project on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Sat, 17 Dec 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://kahultman.github.io/Evolve-Data-Science/tags/project/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://evolvedatascience.com/tags/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>West Nile Virus in Chicago, Part 1</title>
-      <link>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/</link>
+      <link>https://evolvedatascience.com/post/2016-12-17-wnv-blogpost/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://kahultman.github.io/Evolve-Data-Science/post/2016-12-17-wnv-blogpost/</guid>
+      <guid>https://evolvedatascience.com/post/2016-12-17-wnv-blogpost/</guid>
       <description>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.
 The data is structured so there is instant gratification.</description>
     </item>
