@@ -2,7 +2,7 @@
 date: 2017-03-08
 title: "A Shiny App for the Biology Alumni Survey"
 author: "Keith Hultman"
-bigimg: [{src: "/img/feature-image-electrophoresis.jpg"}]
+bigimg: [{src: "img/feature-image-electrophoresis.jpg"}]
 ---
 
 I recently built an interactive dashboard for the [Elmhurst Biology Department's alumni survey.](http://52.54.16.230/shiny/keith/SurveyApp/)

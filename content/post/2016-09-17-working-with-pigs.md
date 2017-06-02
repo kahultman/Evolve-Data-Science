@@ -2,7 +2,7 @@
 title: "Working with Pigs"
 excerpt: "Grunt"
 tags: [BigData]
-bigimg: [{src: "/img/feature-image-data-blue.jpg"}]
+bigimg: [{src: "img/feature-image-data-blue.jpg"}]
 date: 2016-09-17
 ---
 
