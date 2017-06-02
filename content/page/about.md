@@ -2,7 +2,7 @@
 title: About Keith Hultman
 subtitle: A data scientist in Chicago 
 comments: false
-bigimg: [{src: "img/feature-image-dna1.jpg"}]
+bigimg: [{src: "img/feature-image-blue-short.jpg"}]
 ---
 
 Keith is a data loving nerd with a background in genetics who was seduced by business applications of statistical models and A/B testing. He has over 10 years of experience as a molecular geneticist with a focus on computational biology and statistical methods. He is currently transitioning into data science consulting.
