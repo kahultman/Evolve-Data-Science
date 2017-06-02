@@ -54,18 +54,24 @@ googleAnalytics = "UA-88236006-2"
     name = "Projects"
     url = "page/"
     weight = 2
+
+[[menu.main]]
+    parent = "Projects"
+    name = "Divvy Forecasting"
+    url = "/post/2017-06-01-forecasting-divvy-bikesharing-traffic"
+    weight = 1
     
 [[menu.main]]
     parent = "Projects"
     name = "West Nile Virus"
     url = "/post/2016-12-17-wnv-blogpost/"
-    weight = 1
+    weight = 2
     
 [[menu.main]]
     parent = "Projects"
     name = "Meteor Data Exploration"
     url = "/post/2015-09-07-meteor"
-    weight = 2
+    weight = 3
 
 [[menu.main]]
     name = "Tags"
