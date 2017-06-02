@@ -58,7 +58,7 @@ googleAnalytics = "UA-88236006-2"
 [[menu.main]]
     parent = "Projects"
     name = "Divvy Forecasting"
-    url = "/post/2017-06-01-forecasting-divvy-bikesharing-traffic"
+    url = "/post/forecasting-divvy-bikesharing-traffic/"
     weight = 1
     
 [[menu.main]]
