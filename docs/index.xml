@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
-    <lastBuildDate>Wed, 08 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://evolvedatascience.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Forecasting Divvy bikesharing traffic</title>
+      <link>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</guid>
+      <description>Introduction Divvy is a bike sharing system for the city of Chicago that provides residents and tourists an option for getting around the city. After patrons purchase a daily or annual pass, they can unlock a bike, ride to their destination, and return the bike to one of the Divvy bike docking stations found throughout the city. The daily and annual pass includes 30 minutes of riding time, with additional fees for longer trips.</description>
+    </item>
     
     <item>
       <title>A Shiny App for the Biology Alumni Survey</title>

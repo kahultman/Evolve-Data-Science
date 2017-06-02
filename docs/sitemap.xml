@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://evolvedatascience.com/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
   </url>
@@ -65,6 +70,12 @@
   </url>
   
   <url>
+    <loc>http://evolvedatascience.com/tags/chicago/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://evolvedatascience.com/tags/competition/</loc>
     <lastmod>2016-12-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -90,7 +101,13 @@
   
   <url>
     <loc>http://evolvedatascience.com/</loc>
-    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://evolvedatascience.com/tags/forecasting/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -107,7 +124,7 @@
   
   <url>
     <loc>http://evolvedatascience.com/post/</loc>
-    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -120,6 +137,12 @@
   <url>
     <loc>http://evolvedatascience.com/tags/project/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://evolvedatascience.com/categories/project/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -138,6 +161,12 @@
   <url>
     <loc>http://evolvedatascience.com/tags/</loc>
     <lastmod>2016-10-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://evolvedatascience.com/tags/timeseries/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Chicago</title>
+      <link>http://evolvedatascience.com/tags/chicago/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>http://evolvedatascience.com/tags/chicago/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Competition</title>
       <link>http://evolvedatascience.com/tags/competition/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
@@ -54,6 +63,15 @@
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>http://evolvedatascience.com/tags/data-exploration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Forecasting</title>
+      <link>http://evolvedatascience.com/tags/forecasting/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>http://evolvedatascience.com/tags/forecasting/</guid>
       <description></description>
     </item>
     
@@ -99,6 +117,15 @@
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>http://evolvedatascience.com/tags/tableau/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Timeseries</title>
+      <link>http://evolvedatascience.com/tags/timeseries/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>http://evolvedatascience.com/tags/timeseries/</guid>
       <description></description>
     </item>
     
