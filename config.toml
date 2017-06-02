@@ -33,21 +33,11 @@ googleAnalytics = "UA-88236006-2"
 [Author]
   name = "Keith Hultman"
   email = "keithh@gmail.com"
-  facebook = "username"
-  googleplus = "+username"
   github = "kahultman"
   twitter = "keithhultman"
-  reddit = "username"
   linkedin = "keithhultman"
-  xing = "username"
-  stackoverflow = "users/XXXXXXX/username"
-  snapchat = "username"
-  instagram = "username"
-  youtube = "user/username" # or channel/channelname
-  soundcloud = "username"
-  spotify = "username"
-  bandcamp = "username"
-  itchio = "username"
+#  stackoverflow = "users/XXXXXXX/username"
+#  youtube = "user/username" # or channel/channelname
 
 [[menu.main]]
     name = "Blog"
