@@ -1,4 +1,4 @@
-baseurl = "https://evolvedatascience.com/"
+baseurl = "http://evolvedatascience.com/"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "Evolve Data Science"

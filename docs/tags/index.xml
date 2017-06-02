@@ -2,112 +2,112 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Evolve Data Science</title>
-    <link>https://evolvedatascience.com/tags/</link>
+    <link>http://evolvedatascience.com/tags/</link>
     <description>Recent content in Tags on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Fri, 28 Oct 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://evolvedatascience.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://evolvedatascience.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bigdata</title>
-      <link>https://evolvedatascience.com/tags/bigdata/</link>
+      <link>http://evolvedatascience.com/tags/bigdata/</link>
       <pubDate>Fri, 28 Oct 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/bigdata/</guid>
+      <guid>http://evolvedatascience.com/tags/bigdata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Competition</title>
-      <link>https://evolvedatascience.com/tags/competition/</link>
+      <link>http://evolvedatascience.com/tags/competition/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/competition/</guid>
+      <guid>http://evolvedatascience.com/tags/competition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Correlation</title>
-      <link>https://evolvedatascience.com/tags/correlation/</link>
+      <link>http://evolvedatascience.com/tags/correlation/</link>
       <pubDate>Fri, 28 Oct 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/correlation/</guid>
+      <guid>http://evolvedatascience.com/tags/correlation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data</title>
-      <link>https://evolvedatascience.com/tags/data/</link>
+      <link>http://evolvedatascience.com/tags/data/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/data/</guid>
+      <guid>http://evolvedatascience.com/tags/data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Exploration</title>
-      <link>https://evolvedatascience.com/tags/data-exploration/</link>
+      <link>http://evolvedatascience.com/tags/data-exploration/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/data-exploration/</guid>
+      <guid>http://evolvedatascience.com/tags/data-exploration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Meetup</title>
-      <link>https://evolvedatascience.com/tags/meetup/</link>
+      <link>http://evolvedatascience.com/tags/meetup/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/meetup/</guid>
+      <guid>http://evolvedatascience.com/tags/meetup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Prediction</title>
-      <link>https://evolvedatascience.com/tags/prediction/</link>
+      <link>http://evolvedatascience.com/tags/prediction/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/prediction/</guid>
+      <guid>http://evolvedatascience.com/tags/prediction/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project</title>
-      <link>https://evolvedatascience.com/tags/project/</link>
+      <link>http://evolvedatascience.com/tags/project/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/project/</guid>
+      <guid>http://evolvedatascience.com/tags/project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://evolvedatascience.com/tags/r/</link>
+      <link>http://evolvedatascience.com/tags/r/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/r/</guid>
+      <guid>http://evolvedatascience.com/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tableau</title>
-      <link>https://evolvedatascience.com/tags/tableau/</link>
+      <link>http://evolvedatascience.com/tags/tableau/</link>
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/tableau/</guid>
+      <guid>http://evolvedatascience.com/tags/tableau/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization</title>
-      <link>https://evolvedatascience.com/tags/visualization/</link>
+      <link>http://evolvedatascience.com/tags/visualization/</link>
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/tags/visualization/</guid>
+      <guid>http://evolvedatascience.com/tags/visualization/</guid>
       <description></description>
     </item>
     

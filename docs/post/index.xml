@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Evolve Data Science</title>
-    <link>https://evolvedatascience.com/post/</link>
+    <link>http://evolvedatascience.com/post/</link>
     <description>Recent content in Posts on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Wed, 08 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://evolvedatascience.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://evolvedatascience.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Shiny App for the Biology Alumni Survey</title>
-      <link>https://evolvedatascience.com/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</link>
+      <link>http://evolvedatascience.com/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</link>
       <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</guid>
+      <guid>http://evolvedatascience.com/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</guid>
       <description>I recently built an interactive dashboard for the Elmhurst Biology Department’s alumni survey.
 Background Our biology department at Elmhurst is highly motivated to improve our teaching methods and styles. Currently, we are updating our introductory course curriculum with adding more active learning, standardizing laboratory modules, and developing central themes to introduce students to the field of biology and the scientific method.
 As part of this curriculum revision, we recently reached out to alumni through social media and asked them to evaluate their training here at Elmhurst in light of their current career path.</description>
@@ -25,67 +25,67 @@ As part of this curriculum revision, we recently reached out to alumni through s
     
     <item>
       <title>West Nile Virus in Chicago, Part 1</title>
-      <link>https://evolvedatascience.com/post/2016-12-17-wnv-blogpost/</link>
+      <link>http://evolvedatascience.com/post/2016-12-17-wnv-blogpost/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2016-12-17-wnv-blogpost/</guid>
+      <guid>http://evolvedatascience.com/post/2016-12-17-wnv-blogpost/</guid>
       <description>This project will explore and analyze a dataset for West Nile Virus (WNV) detection in mosquitoes that were captured using traps around Chicago, IL. The data sets originate from the Kaggle competition, West Nile Virus Prediction. Even though the competition for this data set is over, I like using data sets from Kaggle to practice data viz and machine learning for the following reasons.
 The data is structured so there is instant gratification.</description>
     </item>
     
     <item>
       <title>Enova Data Smackdown Competition</title>
-      <link>https://evolvedatascience.com/post/2016-12-09-enova-data-smackdown-competition/</link>
+      <link>http://evolvedatascience.com/post/2016-12-09-enova-data-smackdown-competition/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2016-12-09-enova-data-smackdown-competition/</guid>
+      <guid>http://evolvedatascience.com/post/2016-12-09-enova-data-smackdown-competition/</guid>
       <description>Last night I attended a great data science meetup hosted by Enova Decisions in downtown Chicago. I’ve been to a few other data related meetups that mostly focused on talks or networking, but this one was all based around a challenging data set for participants to delve into.
  I heard word of the Smackdown from the fantastic Chicago R Users Group (RUG) earlier this week and was sure to register as soon as I could.</description>
     </item>
     
     <item>
       <title>Monte Carlo of Random Correlations</title>
-      <link>https://evolvedatascience.com/post/2016-10-28-random-data-explore/</link>
+      <link>http://evolvedatascience.com/post/2016-10-28-random-data-explore/</link>
       <pubDate>Fri, 28 Oct 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2016-10-28-random-data-explore/</guid>
+      <guid>http://evolvedatascience.com/post/2016-10-28-random-data-explore/</guid>
       <description>Exploring correlations of random numbers When working with big data you need to be more aware of statistical outliers than you do with more typical data sizes. Basic statistical tests like a Student’s t-test or Pearson correlation are acceptable when you only test a few relationships in a small data set. But when you examine the correlation with thousands of columns of data, you are bound to find several that are strongly correlated.</description>
     </item>
     
     <item>
       <title>Hadoop Popularity</title>
-      <link>https://evolvedatascience.com/post/2016-09-25-hadoop-popularity/</link>
+      <link>http://evolvedatascience.com/post/2016-09-25-hadoop-popularity/</link>
       <pubDate>Sun, 25 Sep 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2016-09-25-hadoop-popularity/</guid>
+      <guid>http://evolvedatascience.com/post/2016-09-25-hadoop-popularity/</guid>
       <description>Exploring the popularity of Pig and Hive Pig and Hive are sometimes compared with one another for their ability to do data manipulations on a Hadoop cluster. There are some important differences. Hive is a direct implementation of the SQL language standard, which gives it a leg-up in terms of user familiarity. I wanted to see how the two compared in the number of posts on Stack Overflow a popular question/answer site for software developers.</description>
     </item>
     
     <item>
       <title>Working with Pigs</title>
-      <link>https://evolvedatascience.com/post/2016-09-17-working-with-pigs/</link>
+      <link>http://evolvedatascience.com/post/2016-09-17-working-with-pigs/</link>
       <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2016-09-17-working-with-pigs/</guid>
+      <guid>http://evolvedatascience.com/post/2016-09-17-working-with-pigs/</guid>
       <description>This week I&amp;rsquo;ve been learning about the Pig language for Hadoop distributed computing systems. This is the first of several languages that we are covering this semester that were designed as abstractions on top of MapReduce. It&amp;rsquo;s really interesting to me how many different layers of programming can sit on top of one another and work together to make working with what is essentially machine language more human like.
 In the case of Pig, the language is called Pig Latin, and resembles SQL in several ways.</description>
     </item>
     
     <item>
       <title>How to set up RStudio on AWS for a Bioinformatics class</title>
-      <link>https://evolvedatascience.com/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</link>
+      <link>http://evolvedatascience.com/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</link>
       <pubDate>Wed, 07 Sep 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</guid>
+      <guid>http://evolvedatascience.com/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</guid>
       <description>Motivations for the RStudio course server This fall is probably the most enjoyable semester I&amp;rsquo;ve ever had teaching. I had an opportunity to design and run an upper-level special topics course on bioinformatics at Elmhurst College. It&amp;rsquo;s a class I&amp;rsquo;ve always wanted to teach because for me, it&amp;rsquo;s like being able to organize a class around everything I would have wanted to know before going to graduate school for genetics.</description>
     </item>
     
     <item>
       <title>Meteorite Data Exploration</title>
-      <link>https://evolvedatascience.com/post/2015-09-07-meteor/</link>
+      <link>http://evolvedatascience.com/post/2015-09-07-meteor/</link>
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>https://evolvedatascience.com/post/2015-09-07-meteor/</guid>
+      <guid>http://evolvedatascience.com/post/2015-09-07-meteor/</guid>
       <description>Meteor data exploration on Tableau public</description>
     </item>
     
