@@ -1,6 +1,6 @@
 ---
 title: "Working with Pigs"
-excerpt: "Grunt"
+subtitle: "Grunt"
 tags: [BigData]
 bigimg: [{src: "img/feature-image-data-blue.jpg"}]
 date: 2016-09-17

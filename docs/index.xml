@@ -99,6 +99,15 @@ In the case of Pig, the language is called Pig Latin, and resembles SQL in sever
     </item>
     
     <item>
+      <title></title>
+      <link>http://evolvedatascience.com/post/2017-06-01-top-5-data-science-podcasts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>http://evolvedatascience.com/post/2017-06-01-top-5-data-science-podcasts/</guid>
+      <description>Top 5 data science podcasts       code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs &amp;&amp; document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
+    </item>
+    
+    <item>
       <title>About Keith Hultman</title>
       <link>http://evolvedatascience.com/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
