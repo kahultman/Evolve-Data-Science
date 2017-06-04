@@ -2,7 +2,7 @@
 title: Top 5 data science podcasts
 author: Keith Hultman
 date: '2017-06-01'
-draft: TRUE
+draft: true
 categories: []
 tags: []
 subtitle: ''

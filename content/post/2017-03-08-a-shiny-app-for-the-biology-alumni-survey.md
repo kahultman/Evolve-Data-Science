@@ -5,7 +5,7 @@ author: "Keith Hultman"
 bigimg: [{src: "img/feature-image-electrophoresis.jpg"}]
 ---
 
-I recently built an interactive dashboard for the [Elmhurst Biology Department's alumni survey.](http://52.54.16.230/shiny/keith/SurveyApp/)
+I recently built an interactive dashboard for the [Elmhurst Biology Department's alumni survey.](https://keithh.shinyapps.io/SurveyApp/)
 
 ### Background
 
@@ -15,7 +15,7 @@ As part of this curriculum revision, we recently reached out to alumni through s
 
 Although the original report did an excellent job in examining the responses in aggregate, there was not much analysis of the relationship between the different types of responses. I further analyzed the responses to answer several questions I had about the data. But I also wanted my colleagues to ask their own questions and perhaps they would find something I might miss. I've been wanting to build an R Shiny app, and this was a perfect excuse for it.
 
-[The EC Biology Survey Shiny App](http://52.54.16.230/shiny/keith/SurveyApp/) lets them filter according to different graduation years and career fields and then visualize how those groups rated our curriculum. One surprising result for me was that transfer students seemed to rank our curriculum quite high compared to those who started their education here. This could be because they were comparing our curriculum positively to the school they transfered from. Or, perhaps we are on the right track in updating our introductory courses for our Freshmen and Sophomores, as students who took those courses ranked us lower. The shiny app also uses some text analysis (using the tidytext R package) in order to rank the most common curriculum requests from these groups, which I find to be really useful. 
+[The EC Biology Survey Shiny App](https://keithh.shinyapps.io/SurveyApp/) lets them filter according to different graduation years and career fields and then visualize how those groups rated our curriculum. One surprising result for me was that transfer students seemed to rank our curriculum quite high compared to those who started their education here. This could be because they were comparing our curriculum positively to the school they transfered from. Or, perhaps we are on the right track in updating our introductory courses for our Freshmen and Sophomores, as students who took those courses ranked us lower. The shiny app also uses some text analysis (using the tidytext R package) in order to rank the most common curriculum requests from these groups, which I find to be really useful. 
 
 ## Major Curriculum/Program Suggestions by Alumni
 
@@ -35,4 +35,4 @@ The following suggestions were popular with all alumni but especially with alumn
 * Add emphasis of epigenetics into (Advanced?) Genetics course
 
 
-You can check it out [here](http://52.54.16.230/shiny/keith/SurveyApp/) for yourself, and let me know what you think.
+You can check it out [here](https://keithh.shinyapps.io/SurveyApp/) for yourself, and let me know what you think.
