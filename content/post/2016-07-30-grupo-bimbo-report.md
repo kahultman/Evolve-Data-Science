@@ -61,7 +61,7 @@ $log(x)$ is the natural logarithm of $x$
 
 ### Data Science Plan and Process
 
-![CRISP](../img/bimbo/crisp_model_4by4.png) 
+![CRISP](../../img/bimbo/crisp_model_4by4.png) 
 
 Our team of data scientists will be using the CRISP method of data science (figure1). 
 This technical report will mirror the data science steps outlined in CRISP. We primarily used R for the visualization and modeling processes. Version control and collaboration was done by using a [github repository](https://github.com/kahultman/grupo-bimbo), and our code is available there. Communication between group members was primarily using Slack and a weekly Google Hangouts video conference. 
@@ -71,7 +71,7 @@ This technical report will mirror the data science steps outlined in CRISP. We p
 
 During the initial data exploration step, each of us independently explored the data using summary statistics and visualizations. We examined several relationships between locality and demand and returns (figure2). 
 
-![By State](../img/bimbo/states.png)
+![By State](../../img/bimbo/states.png)
 
 ### Goals for the Kaggle competition versus actual client work
 
@@ -79,11 +79,11 @@ Since our project was based off of a Kaggle competition, it is worth pointing ou
 
 Only 3% of weekly product sales involve any returned products. If the human model is responsive to these returns we expect to see a drop in the following week's deliveries. However, as Figure 3A and 3B show, it looks like the human model is not responsive to a product with returns or the number of returned units. We consider this beneficial for our purposes because we can estimate actual demand rather than attempt to predict the behavior of the current human model. There is an effect on actual demand however (Fig 3C, 3D), so there is a small benefit to be gained by incorporating returns within our models. 
 
-![Returns Effect](../img/bimbo/returns.png)
+![Returns Effect](../../img/bimbo/returns.png)
 
 After model implementation, products should be intentionally overstocked if the product's demand is evaluated by data with no returns. We also noticed that returns were possibly a result of particular depots over estimating demand (figure 4)
 
-![Depot Returns](../img/bimbo/depotreturn.png)
+![Depot Returns](../../img/bimbo/depotreturn.png)
 
 
 ## Modelling 1: Persistant Baseline Model
@@ -98,7 +98,7 @@ RMSLE: 0.63813
 
 Our initial thought was to interpret the data as a time series. The first problem with this was the short time period did not allow for seasonality determination. While there might be some trends in the change of demand over these short weeks, given the lack of response to demand from the current human model, most of the changes over this short time period is likely to be error rather than true trend. Thus, our first model to improve the baseline will aggregate demand across all time points for each feature in the model. 
 
-![Sample Demand Over Time](img/bimbo/sample_time_trend_6by6.png)
+![Sample Demand Over Time](../../img/bimbo/sample_time_trend_6by6.png)
 
 The first model is really not a model in the traditional sense. This model will simply take the median demand for particular attribute combinations and use that to predict future demand for those attribute combinations. The first model predicts demand by taking the median demand for each product-client pair. For instances where the product-client pair is in the test set but not available in the training set (such as instances where a client first orders a product during the test weeks) we predict demand by the median demand for that product at other clients. In the case where there is a new product we predict demand by the overall median demand for all products. 
 

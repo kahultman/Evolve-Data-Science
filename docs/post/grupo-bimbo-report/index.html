@@ -340,7 +340,7 @@ ga('send', 'pageview');
 
 <h3 id="data-science-plan-and-process">Data Science Plan and Process</h3>
 
-<p><img src="../img/bimbo/crisp_model_4by4.png" alt="CRISP" /></p>
+<p><img src="../../img/bimbo/crisp_model_4by4.png" alt="CRISP" /></p>
 
 <p>Our team of data scientists will be using the CRISP method of data science (figure1).
 This technical report will mirror the data science steps outlined in CRISP. We primarily used R for the visualization and modeling processes. Version control and collaboration was done by using a <a href="https://github.com/kahultman/grupo-bimbo">github repository</a>, and our code is available there. Communication between group members was primarily using Slack and a weekly Google Hangouts video conference.</p>
@@ -349,7 +349,7 @@ This technical report will mirror the data science steps outlined in CRISP. We p
 
 <p>During the initial data exploration step, each of us independently explored the data using summary statistics and visualizations. We examined several relationships between locality and demand and returns (figure2).</p>
 
-<p><img src="../img/bimbo/states.png" alt="By State" /></p>
+<p><img src="../../img/bimbo/states.png" alt="By State" /></p>
 
 <h3 id="goals-for-the-kaggle-competition-versus-actual-client-work">Goals for the Kaggle competition versus actual client work</h3>
 
@@ -357,11 +357,11 @@ This technical report will mirror the data science steps outlined in CRISP. We p
 
 <p>Only 3% of weekly product sales involve any returned products. If the human model is responsive to these returns we expect to see a drop in the following week&rsquo;s deliveries. However, as Figure 3A and 3B show, it looks like the human model is not responsive to a product with returns or the number of returned units. We consider this beneficial for our purposes because we can estimate actual demand rather than attempt to predict the behavior of the current human model. There is an effect on actual demand however (Fig 3C, 3D), so there is a small benefit to be gained by incorporating returns within our models.</p>
 
-<p><img src="../img/bimbo/returns.png" alt="Returns Effect" /></p>
+<p><img src="../../img/bimbo/returns.png" alt="Returns Effect" /></p>
 
 <p>After model implementation, products should be intentionally overstocked if the product&rsquo;s demand is evaluated by data with no returns. We also noticed that returns were possibly a result of particular depots over estimating demand (figure 4)</p>
 
-<p><img src="../img/bimbo/depotreturn.png" alt="Depot Returns" /></p>
+<p><img src="../../img/bimbo/depotreturn.png" alt="Depot Returns" /></p>
 
 <h2 id="modelling-1-persistant-baseline-model">Modelling 1: Persistant Baseline Model</h2>
 
@@ -375,7 +375,7 @@ This technical report will mirror the data science steps outlined in CRISP. We p
 
 <p>Our initial thought was to interpret the data as a time series. The first problem with this was the short time period did not allow for seasonality determination. While there might be some trends in the change of demand over these short weeks, given the lack of response to demand from the current human model, most of the changes over this short time period is likely to be error rather than true trend. Thus, our first model to improve the baseline will aggregate demand across all time points for each feature in the model.</p>
 
-<p><img src="img/bimbo/sample_time_trend_6by6.png" alt="Sample Demand Over Time" /></p>
+<p><img src="../../img/bimbo/sample_time_trend_6by6.png" alt="Sample Demand Over Time" /></p>
 
 <p>The first model is really not a model in the traditional sense. This model will simply take the median demand for particular attribute combinations and use that to predict future demand for those attribute combinations. The first model predicts demand by taking the median demand for each product-client pair. For instances where the product-client pair is in the test set but not available in the training set (such as instances where a client first orders a product during the test weeks) we predict demand by the median demand for that product at other clients. In the case where there is a new product we predict demand by the overall median demand for all products.</p>
 
