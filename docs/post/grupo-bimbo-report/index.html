@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Grupo Bimbo Report</title>
+  <meta property="og:title" content="Grupo Bimbo Report" />
+  <meta name="twitter:title" content="Grupo Bimbo Report" />
+  <meta name="description" content="Predicting Demand of Bakery Goods">
+  <meta property="og:description" content="Predicting Demand of Bakery Goods">
+  <meta name="twitter:description" content="Predicting Demand of Bakery Goods">
+  <meta name="author" content="Keith Hultman"/>
+  <link href='http://evolvedatascience.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://evolvedatascience.com/img/avatar-icon.png" />
+  <meta name="twitter:image" content="http://evolvedatascience.com/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@keithhultman" />
+  <meta name="twitter:creator" content="@keithhultman" />
+  <meta property="og:url" content="http://evolvedatascience.com/post/grupo-bimbo-report/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Evolve Data Science" />
+
+  <meta name="generator" content="Hugo 0.21" />
+  <link rel="canonical" href="http://evolvedatascience.com/post/grupo-bimbo-report/" />
+  <link rel="alternate" href="http://evolvedatascience.com/index.xml" type="application/rss+xml" title="Evolve Data Science">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://evolvedatascience.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://evolvedatascience.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://evolvedatascience.com/css/highlight.min.css" />
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-88236006-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://evolvedatascience.com/">Evolve Data Science</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="../../">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Projects</a>
+              <div class="navlinks-children">
+                
+                  <a href="../../post/forecasting-divvy-bikesharing-traffic/">Divvy Forecasting</a>
+                
+                  <a href="../../post/2016-12-17-wnv-blogpost/">West Nile Virus</a>
+                
+                  <a href="../../post/2015-09-07-meteor">Meteor Data Exploration</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="../../page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="../../tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+          <li>
+            <a href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Evolve Data Science" href="http://evolvedatascience.com/">
+            <img class="avatar-img" src="http://evolvedatascience.com/img/avatar-icon.png" alt="Evolve Data Science" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+  <div id="modalSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Search Evolve Data Science</h4>
+        </div>
+        <div class="modal-body">
+          <gcse:search></gcse:search>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    
+  
+  
+  
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 data-img-src-1="http://evolvedatascience.com/img/bimbo/feature-bimbo.jpg" ></div>
+  
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Grupo Bimbo Report</h1>
+                  
+                    
+                      <h2 class="post-subheading">Predicting Demand of Bakery Goods</h2>
+                    
+                  
+                  
+                    <span class="post-meta">
+  Posted on June 7, 2017
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Grupo Bimbo Report</h1>
+                
+                  
+                    <h2 class="post-subheading">Predicting Demand of Bakery Goods</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on June 7, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<h1 id="grupo-bimbo-technical-report">Grupo Bimbo Technical Report</h1>
+
+<h2 id="project-overview">Project Overview</h2>
+
+<p>Our client, Grupo Bimbo, wants to develop a model to accurately forecast inventory demand based on the historical sales data they collect. Grupo Bimbo is a large bakery store chain that has more than 2500 products spanning over one million stores. Their goal is to meet the product demand for their customers while minimizing unsold surplus. Our group is tasked to create a model to accurately forecast inventory demand based on the historical sales data provided. Creating a successful model will give each of the 1 million stores the ability to accurately request the appropriate amount of each bakery product on a weekly basis.
+  Grupo Bimbo&rsquo;s current model for estimating demand is purely human estimated. Managers estimate demand from the sales of products and their returns and make a judgement for the following week&rsquo;s orders. This &lsquo;human&rsquo; model offers a very high business value for implementing automated machine learning and data science methods to more accurately predict demand.</p>
+
+<h3 id="description-of-data-and-competition-rules">Description of data and competition rules</h3>
+
+<p>Grupo Bimbo supplied 9 weeks of historical data in a 3.2Gb csv file with 74,180,464 weekly observations for each product delivery. The features in the training data set, and the features available in the test set are detailed below.</p>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Original name</th>
+<th>Description</th>
+<th>In test set</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>week</td>
+<td>Semana</td>
+<td>Week number (3-9)</td>
+<td>+</td>
+</tr>
+
+<tr>
+<td>depot</td>
+<td>Agencia_ID</td>
+<td>Sales Depot ID</td>
+<td>+</td>
+</tr>
+
+<tr>
+<td>channel</td>
+<td>Canal_ID</td>
+<td>Sales Channel ID</td>
+<td>+</td>
+</tr>
+
+<tr>
+<td>route</td>
+<td>Ruta_SAK</td>
+<td>Route ID (Several routes / Sales Depot)</td>
+<td>+</td>
+</tr>
+
+<tr>
+<td>client</td>
+<td>Cliente_ID</td>
+<td>Client or Store ID</td>
+<td>+</td>
+</tr>
+
+<tr>
+<td>product</td>
+<td>Producto_ID</td>
+<td>Product ID</td>
+<td>+</td>
+</tr>
+
+<tr>
+<td>sales_units</td>
+<td>Venta_uni_hoy</td>
+<td>Sales units this week</td>
+<td></td>
+</tr>
+
+<tr>
+<td>sales</td>
+<td>Venta_hoy</td>
+<td>Sales this week (pesos)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>returns_units</td>
+<td>Dev_uni_proxima</td>
+<td>Returns units next week</td>
+<td></td>
+</tr>
+
+<tr>
+<td>returns</td>
+<td>Dev_proxima</td>
+<td>Returns next week (pesos)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>demand</td>
+<td>Demanda_uni_equil</td>
+<td>Adjusted Demand (sales_units - returns_units)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>The target variable is ‘Adjusted Demand’, which will be an integer representing the demand of a product, in units.
+  Each model will be evaluated for accuracy using the Root Mean Squared Logarithmic Error (RMSLE). This measure for estimating error will penalize models that under-predict more than a model that over-predicts.</p>
+
+<p>$$\epsilon = \sqrt{\frac{1}{n} \sum_{i=1}^{n} \big(log(p_i + 1)-log(a_i + 1)\big)^2}$$</p>
+
+<p>Where:</p>
+
+<p>$\epsilon$ is the RMSLE value (score)</p>
+
+<p>$n$ is the total number of observations in the data set,</p>
+
+<p>$p_i$ is the prediction of demand</p>
+
+<p>$a_i$ is the actual demand for $i$</p>
+
+<p>$log(x)$ is the natural logarithm of $x$</p>
+
+<p>Another limitation of this data set is that demand is approximated by subtracting the supply from the following week&rsquo;s return of inventory. This would naturally allow for an accurate estimate of demand when supply is higher than demand, but would not accurately estimate demand in cases where the product is under-supplied. Using RMSLE helps with this in some ways by having a greater cost for under-estimated demand than over-estimated demand. However, this alone would not guarentee accurate model evaluation with true demand.</p>
+
+<h3 id="data-science-plan-and-process">Data Science Plan and Process</h3>
+
+<p><img src="img/bimbo/crisp_model_4by4.png" alt="CRISP" /></p>
+
+<p>Our team of data scientists will be using the CRISP method of data science (figure1).
+This technical report will mirror the data science steps outlined in CRISP. We primarily used R for the visualization and modeling processes. Version control and collaboration was done by using a <a href="https://github.com/kahultman/grupo-bimbo">github repository</a>, and our code is available there. Communication between group members was primarily using Slack and a weekly Google Hangouts video conference.</p>
+
+<h2 id="data-exploration">Data Exploration</h2>
+
+<p>During the initial data exploration step, each of us independently explored the data using summary statistics and visualizations. We examined several relationships between locality and demand and returns (figure2).</p>
+
+<p><img src="img/bimbo/states.png" alt="By State" /></p>
+
+<h3 id="goals-for-the-kaggle-competition-versus-actual-client-work">Goals for the Kaggle competition versus actual client work</h3>
+
+<p>Since our project was based off of a Kaggle competition, it is worth pointing out how the competition rules shaped and limited our approach to the project. If our project were a real-world situation, our model would be deployed to predict demand for Grupo Bimbo&rsquo;s products and we would be able to evaluate how well our predicted demand matched the actual demand for the products based on the number of returns the company observed following deployment. For example if our model predicted an increase in demand for product #384 at store #1381 from 15 units to 20 units, Grupo Bimbo would increase the sales to that store and record the number of returned units the following week. However, since both the train and the test data sets are historical, the actual recorded demand is based off of sales without deploying our model. In other words, the cake is already baked and the record for demand is actually based in part on the current human model of demand.</p>
+
+<p>Only 3% of weekly product sales involve any returned products. If the human model is responsive to these returns we expect to see a drop in the following week&rsquo;s deliveries. However, as Figure 3A and 3B show, it looks like the human model is not responsive to a product with returns or the number of returned units. We consider this beneficial for our purposes because we can estimate actual demand rather than attempt to predict the behavior of the current human model. There is an effect on actual demand however (Fig 3C, 3D), so there is a small benefit to be gained by incorporating returns within our models.</p>
+
+<p><img src="img/bimbo/returns.png" alt="Returns Effect" /></p>
+
+<p>After model implementation, products should be intentionally overstocked if the product&rsquo;s demand is evaluated by data with no returns. We also noticed that returns were possibly a result of particular depots over estimating demand (figure 4)</p>
+
+<p><img src="img/bimbo/depotreturn.png" alt="Depot Returns" /></p>
+
+<h2 id="modelling-1-persistant-baseline-model">Modelling 1: Persistant Baseline Model</h2>
+
+<p>Before implementing various machine learning methods we created a baseline model designed to predict demand based on minimal data and simulating the description of the human model currently in place at Grupo Bimbo. In this model, demand is assumed to remain unchanged from the previous week. In the case where a product/client combination is new or there is a newly released product, demand is predicted to be the overall mean demand.</p>
+
+<p>Persistant Baseline Model: Demand(week^x^) = Demand(week^x-1^)</p>
+
+<p>RMSLE: 0.63813</p>
+
+<h2 id="modelling-2-conditional-medians-means">Modelling 2: Conditional Medians/Means</h2>
+
+<p>Our initial thought was to interpret the data as a time series. The first problem with this was the short time period did not allow for seasonality determination. While there might be some trends in the change of demand over these short weeks, given the lack of response to demand from the current human model, most of the changes over this short time period is likely to be error rather than true trend. Thus, our first model to improve the baseline will aggregate demand across all time points for each feature in the model.</p>
+
+<p><img src="img/bimbo/sample_time_trend_6by6.png" alt="Sample Demand Over Time" /></p>
+
+<p>The first model is really not a model in the traditional sense. This model will simply take the median demand for particular attribute combinations and use that to predict future demand for those attribute combinations. The first model predicts demand by taking the median demand for each product-client pair. For instances where the product-client pair is in the test set but not available in the training set (such as instances where a client first orders a product during the test weeks) we predict demand by the median demand for that product at other clients. In the case where there is a new product we predict demand by the overall median demand for all products.</p>
+
+<h3 id="conditional-medians-1">Conditional Medians 1</h3>
+
+<ol>
+<li>Demand = median {PC}</li>
+<li>Demand = median {P}</li>
+<li>Demand = median all products</li>
+</ol>
+
+<p>RMSLE score of 0.50941</p>
+
+<p>The above model is specific to each store and product, however, one client may receive deliveries from more than one shipping depot. The second Conditional Medians model is even more specific for its first prediction, and predicts demand for each product-client-depot instance. This specificity is at the finest grain of the data set, there is only one instance for each week in this grouping.</p>
+
+<h3 id="conditional-medians-2">Conditional Medians 2</h3>
+
+<ol>
+<li>Demand = median {PCD}</li>
+<li>Demand = median {PC}</li>
+<li>Demand = median {P}</li>
+<li>Demand = median all products</li>
+</ol>
+
+<p>RMSLE score of 0.50922</p>
+
+<p>This specificity improves the overall RMSLE score slightly. This improvement likely improves predictions for the larger clients and allows particular depots to predict demand they are responsible for delivering.</p>
+
+<h3 id="clrm-conditional-linear-regression-of-means">CLRM: Conditional Linear Regression of Means</h3>
+
+<p>Our next model is a more complex version of the conditional medians model with two major additional changes. The first is that for the most specific cases where product, client, and depot are all a match, we implement a linear regression model that includes a component for the specific case as well as for the more general case of product and route. The second modification involves transforming our target variable from demand to the logarithm of demand plus 1.</p>
+
+<ol>
+<li>$log(Demand)$ = 0.9994$log(\mu{PCD})$ + 1.094e-03$log(\mu{PR})$ - 7.672e-04</li>
+<li>$log(Demand)$ = $log(\mu{PR})$ - 6.153e-13$log(\mu{P})$ + 6.785e-10</li>
+<li>$log(Demand)$ = $log(\mu{P})$</li>
+<li>$log(Demand)$ = $log(\mu{all})$</li>
+</ol>
+
+<p>RMSLE score of 0.48943</p>
+
+<p>This model improves our evaluation metric substantially and brings us below 0.5 on the RMSLE score.</p>
+
+<h2 id="feature-engineering">Feature Engineering</h2>
+
+<p>Thus far we have been creating models with features available from the raw data set. In order to gain additional information, we next considered feature engineering to define new fields. We were able to extract the below features from the given data sets.</p>
+
+<ol>
+<li><p>Product Brand - We were able to extract product brand from product&rsquo;s name. There were 33 brands in total. The extracted brands vector was then merged into the train and test as an addition feature. Since its a categorical variable we had to convert it into numeric feature to be used for xgboost. One of the possibilities we considered was to do a &ldquo;one-hot encoding&rdquo; by creating a sparse matrix from the brand vector so that it can be fed to the xgboost training set.</p></li>
+
+<li><p>Product Weight - We were able to extract the product weight also similar to the product brand from the product name. Some of the weights were given in grams and some others in kilograms. Some products did not have any weight information. We standardised the weights by converting all the weight values into grams.</p></li>
+
+<li><p>Number of Items - In cases where the number of pieces of product was given we extracted it and stored it as a feature.</p></li>
+
+<li><p>Lag demand 1: demand from previous week</p></li>
+
+<li><p>Lag demand 2: demand from two weeks ago</p></li>
+
+<li><p>Lag demand 3: demand from three weeks ago</p></li>
+</ol>
+
+<h2 id="modelling-3-xgboost">Modelling 3: XGBoost</h2>
+
+<p>The next model we started to develop is an Extreme Gradient Boosting (XGBoost) model – which has become one of the most popular algorithms to use for Kaggle competitions.  This algorithm is a combination of both a linear model and decision tree algorithm, which supports objective functions including regression, classification, and ranking.</p>
+
+<p>XGBoost only works with numeric vectors, so the biggest effort is preparing the data in order for it to run properly.  This included joining additional indicator variables to the train dataset from the other datasets provided and creating lag demand variables.  Our goal was to have the model include: demand, lag of demand, weight, pieces, and brand.</p>
+
+<p>The unexpected issue that we ran into was the difficulty of getting the data properly prepared; this turned into a much more difficult task than anticipated.  To turn character variables into numeric, we first tried using a spread function, which transposes the possible outputs of a character variable into individual binary variables.  Unfortunately, this command was not producing the output desired and, in turn, gave us unusable data to run the model.  With limited time, we decided to only use the demand and lag demand variables, tested on our validate data.  With more time, our next idea was the use one hot encoding, which makes a sparse matrix using flags on every possible value of that variable and then run it against the test data.</p>
+
+<p>RMSLE score of 0.6249</p>
+
+<p>Our final model will be an ensemble of the CLRM model and the XGBoost models.</p>
+
+<h2 id="model-deployment">Model deployment</h2>
+
+<p>We recommend deploying an A/B test of the CLRM model. In order to evaluate the business value of our predictions, we recommend testing the model at a random sample of client stores. The remaining clients will receive product based on the current human prediction model. This low-risk test will provide a more accurate evaluation of our predictions and allow for estimation of cost savings if the CLRM model is deployed to all clients.</p>
+
+<h2 id="suggestions-to-grupo-bimbo-for-further-data-mining-value">Suggestions to Grupo Bimbo for further data mining value</h2>
+
+<p>The short duration of demand records limited our selection of modeling methods. A longer historical record would allow for detection of seasonality and long term trends using time series models such as ARIMA.</p>
+
+<p>Creation of product cluster features. Currently, if a new product is introduced, we default to using the overall product average as an estimate for demand in the CLRM model. If we had products clustered by product attributes and similar demand patterns, we could improve predictions for newly released products.</p>
+
+<p>Clustering or categorization of clients. Bimbo products are sold in grocery stores, convenience stores, and used at hamburger joints and other restaurants that have different needs for product types. While the CLRM model is specific to any particular individual store, we think a store category variable would improve predictions by preventing an overestimate of demand in cases where products are unique to particular categories of clients.</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/" data-toggle="tooltip" data-placement="top" title="Forecasting Divvy bikesharing traffic">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'keithhultman';
+    var disqus_identifier = 'http:\/\/evolvedatascience.com\/post\/grupo-bimbo-report\/';
+    var disqus_title = 'Grupo Bimbo Report';
+    var disqus_url = 'http:\/\/evolvedatascience.com\/post\/grupo-bimbo-report\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:keithh@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/kahultman" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/keithhultman" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/keithhultman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://evolvedatascience.com/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Keith Hultman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://evolvedatascience.com/">Evolve Data Science</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.21</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://evolvedatascience.com/js/main.js"></script>
+<script src="http://evolvedatascience.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+<script>
+  (function() {
+    var cx = '004728632483242462951:s8-btxavfju';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
+
+  </body>
+</html>
+

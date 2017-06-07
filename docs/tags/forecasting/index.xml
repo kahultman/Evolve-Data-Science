@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
-    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://evolvedatascience.com/tags/forecasting/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Grupo Bimbo Report</title>
+      <link>http://evolvedatascience.com/post/grupo-bimbo-report/</link>
+      <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>http://evolvedatascience.com/post/grupo-bimbo-report/</guid>
+      <description>Grupo Bimbo Technical Report Project Overview Our client, Grupo Bimbo, wants to develop a model to accurately forecast inventory demand based on the historical sales data they collect. Grupo Bimbo is a large bakery store chain that has more than 2500 products spanning over one million stores. Their goal is to meet the product demand for their customers while minimizing unsold surplus. Our group is tasked to create a model to accurately forecast inventory demand based on the historical sales data provided.</description>
+    </item>
     
     <item>
       <title>Forecasting Divvy bikesharing traffic</title>
