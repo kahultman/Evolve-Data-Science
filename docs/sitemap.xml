@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://evolvedatascience.com/post/grupo-bimbo-report/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
   </url>
@@ -45,6 +40,11 @@
   <url>
     <loc>http://evolvedatascience.com/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</loc>
     <lastmod>2016-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://evolvedatascience.com/post/grupo-bimbo-report/</loc>
+    <lastmod>2016-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -86,7 +86,7 @@
   
   <url>
     <loc>http://evolvedatascience.com/tags/competition/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2016-12-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -104,19 +104,19 @@
   
   <url>
     <loc>http://evolvedatascience.com/tags/data-exploration/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://evolvedatascience.com/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://evolvedatascience.com/tags/forecasting/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -133,7 +133,7 @@
   
   <url>
     <loc>http://evolvedatascience.com/post/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -151,13 +151,13 @@
   
   <url>
     <loc>http://evolvedatascience.com/categories/project/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://evolvedatascience.com/tags/r/</loc>
-    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

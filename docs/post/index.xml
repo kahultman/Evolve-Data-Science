@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
-    <lastBuildDate>Wed, 07 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://evolvedatascience.com/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Grupo Bimbo Report</title>
-      <link>http://evolvedatascience.com/post/grupo-bimbo-report/</link>
-      <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
-      <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>http://evolvedatascience.com/post/grupo-bimbo-report/</guid>
-      <description>Grupo Bimbo Technical Report Project Overview Our client, Grupo Bimbo, wants to develop a model to accurately forecast inventory demand based on the historical sales data they collect. Grupo Bimbo is a large bakery store chain that has more than 2500 products spanning over one million stores. Their goal is to meet the product demand for their customers while minimizing unsold surplus. Our group is tasked to create a model to accurately forecast inventory demand based on the historical sales data provided.</description>
-    </item>
     
     <item>
       <title>Forecasting Divvy bikesharing traffic</title>
@@ -96,6 +87,15 @@ In the case of Pig, the language is called Pig Latin, and resembles SQL in sever
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>http://evolvedatascience.com/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</guid>
       <description>Motivations for the RStudio course server This fall is probably the most enjoyable semester I&amp;rsquo;ve ever had teaching. I had an opportunity to design and run an upper-level special topics course on bioinformatics at Elmhurst College. It&amp;rsquo;s a class I&amp;rsquo;ve always wanted to teach because for me, it&amp;rsquo;s like being able to organize a class around everything I would have wanted to know before going to graduate school for genetics.</description>
+    </item>
+    
+    <item>
+      <title>Grupo Bimbo Report</title>
+      <link>http://evolvedatascience.com/post/grupo-bimbo-report/</link>
+      <pubDate>Sat, 30 Jul 2016 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>http://evolvedatascience.com/post/grupo-bimbo-report/</guid>
+      <description>Grupo Bimbo Technical Report Project Overview Our client, Grupo Bimbo, wants to develop a model to accurately forecast inventory demand based on the historical sales data they collect. Grupo Bimbo is a large bakery store chain that has more than 2500 products spanning over one million stores. Their goal is to meet the product demand for their customers while minimizing unsold surplus. Our group is tasked to create a model to accurately forecast inventory demand based on the historical sales data provided.</description>
     </item>
     
     <item>

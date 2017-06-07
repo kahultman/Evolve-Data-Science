@@ -1,7 +1,7 @@
 ---
 title: Grupo Bimbo Report
 author: Keith Hultman, Carolyn Meier, Renjith Madhavan
-date: '2017-06-07'
+date: '2016-07-30'
 slug: grupo-bimbo-report
 categories:
   - project
