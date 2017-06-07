@@ -68,9 +68,17 @@ googleAnalytics = "UA-88236006-2"
     
 [[menu.main]]
     parent = "Projects"
+    name = "Grupo Bimbo"
+    url = "/post/grupo-bimbo-report/"
+    weight = 3
+    
+[[menu.main]]
+    parent = "Projects"
     name = "Meteor Data Exploration"
     url = "/post/2015-09-07-meteor"
-    weight = 3
+    weight = 4
+    
+
 
 [[menu.main]]
     name = "Tags"
