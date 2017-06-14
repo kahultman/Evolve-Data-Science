@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Forecasting on Evolve Data Science</title>
-    <link>http://evolvedatascience.com/tags/forecasting/</link>
+    <link>/tags/forecasting/</link>
     <description>Recent content in Forecasting on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://evolvedatascience.com/tags/forecasting/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/forecasting/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Forecasting Divvy bikesharing traffic</title>
-      <link>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</link>
+      <link>/post/forecasting-divvy-bikesharing-traffic/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</guid>
+      <guid>/post/forecasting-divvy-bikesharing-traffic/</guid>
       <description>Introduction Divvy is a bike sharing system for the city of Chicago that provides residents and tourists an option for getting around the city. After patrons purchase a daily or annual pass, they can unlock a bike, ride to their destination, and return the bike to one of the Divvy bike docking stations found throughout the city. The daily and annual pass includes 30 minutes of riding time, with additional fees for longer trips.</description>
     </item>
     
     <item>
       <title>Grupo Bimbo Report</title>
-      <link>http://evolvedatascience.com/post/grupo-bimbo-report/</link>
+      <link>/post/grupo-bimbo-report/</link>
       <pubDate>Sat, 30 Jul 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>http://evolvedatascience.com/post/grupo-bimbo-report/</guid>
+      <guid>/post/grupo-bimbo-report/</guid>
       <description>Grupo Bimbo Technical Report Project Overview Our client, Grupo Bimbo, wants to develop a model to accurately forecast inventory demand based on the historical sales data they collect. Grupo Bimbo is a large bakery store chain that has more than 2500 products spanning over one million stores. Their goal is to meet the product demand for their customers while minimizing unsold surplus. Our group is tasked to create a model to accurately forecast inventory demand based on the historical sales data provided.</description>
     </item>
     

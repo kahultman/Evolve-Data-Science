@@ -2,22 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Evolve Data Science</title>
-    <link>http://evolvedatascience.com/page/</link>
+    <link>/page/</link>
     <description>Recent content in Pages on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     
-	<atom:link href="http://evolvedatascience.com/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About Keith Hultman</title>
-      <link>http://evolvedatascience.com/page/about/</link>
+      <link>/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>http://evolvedatascience.com/page/about/</guid>
+      <guid>/page/about/</guid>
       <description>Keith is a data loving nerd with a background in genetics who was seduced by business applications of statistical models and A/B testing. He has over 10 years of experience as a molecular geneticist with a focus on computational biology and statistical methods. He is currently transitioning into data science consulting.
+Download my Resume (PDF)
 Scientific experience  Extensive experience in generating original research ideas, following through with vigorous literature research, experimental design and execution Expert geneticist with extensive experience in Next-Generation Sequencing and gene expression analysis Wet-lab experience includes large-scale forward genetic mutant screens and pharmacogenetic interactions using small molecule drug discovery methods  Skills  Data Analytic Methods: Linear and logistic regression, supervised and unsupervised machine learning, A/B testing and hypothesis testing, and textual analysis Data Software: Proficient in R, Excel, and Perl for data analysis and model testing; proficient in creating data visualizations using Excel, ggplot, and Tableau; experience with Microsoft SQL Server for database and data warehousing Writing: Proficient in technical writing with track record of peer-reviewed publications, grant writing, and editing Presenting: Charismatic and confident public speaker with experience presenting to technical and lay audiences using Tableau and PowerPoint Other Software: Proficient in Word, Camtasia (screen recording), Photoshop, and Illustrator; general programming fluency in Perl, C, Java, and Python  He loves to rock climb whenever he gets the chance.</description>
     </item>
     

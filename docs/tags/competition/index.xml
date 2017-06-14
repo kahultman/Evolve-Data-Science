@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Competition on Evolve Data Science</title>
-    <link>http://evolvedatascience.com/tags/competition/</link>
+    <link>/tags/competition/</link>
     <description>Recent content in Competition on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Fri, 09 Dec 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://evolvedatascience.com/tags/competition/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/competition/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Enova Data Smackdown Competition</title>
-      <link>http://evolvedatascience.com/post/2016-12-09-enova-data-smackdown-competition/</link>
+      <link>/post/2016-12-09-enova-data-smackdown-competition/</link>
       <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>http://evolvedatascience.com/post/2016-12-09-enova-data-smackdown-competition/</guid>
+      <guid>/post/2016-12-09-enova-data-smackdown-competition/</guid>
       <description>Last night I attended a great data science meetup hosted by Enova Decisions in downtown Chicago. I’ve been to a few other data related meetups that mostly focused on talks or networking, but this one was all based around a challenging data set for participants to delve into.
  I heard word of the Smackdown from the fantastic Chicago R Users Group (RUG) earlier this week and was sure to register as soon as I could.</description>
     </item>
     
     <item>
       <title>Grupo Bimbo Report</title>
-      <link>http://evolvedatascience.com/post/grupo-bimbo-report/</link>
+      <link>/post/grupo-bimbo-report/</link>
       <pubDate>Sat, 30 Jul 2016 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>http://evolvedatascience.com/post/grupo-bimbo-report/</guid>
+      <guid>/post/grupo-bimbo-report/</guid>
       <description>Grupo Bimbo Technical Report Project Overview Our client, Grupo Bimbo, wants to develop a model to accurately forecast inventory demand based on the historical sales data they collect. Grupo Bimbo is a large bakery store chain that has more than 2500 products spanning over one million stores. Their goal is to meet the product demand for their customers while minimizing unsold surplus. Our group is tasked to create a model to accurately forecast inventory demand based on the historical sales data provided.</description>
     </item>
     

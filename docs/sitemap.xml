@@ -3,184 +3,189 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</loc>
+    <loc>/post/forecasting-divvy-bikesharing-traffic/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</loc>
+    <loc>/post/2017-06-01-top-5-data-science-podcasts/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-03-08-a-shiny-app-for-the-biology-alumni-survey/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2016-12-17-wnv-blogpost/</loc>
+    <loc>/post/2016-12-17-wnv-blogpost/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2016-12-09-enova-data-smackdown-competition/</loc>
+    <loc>/post/2016-12-09-enova-data-smackdown-competition/</loc>
     <lastmod>2016-12-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2016-10-28-random-data-explore/</loc>
+    <loc>/post/2016-10-28-random-data-explore/</loc>
     <lastmod>2016-10-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2016-09-25-hadoop-popularity/</loc>
+    <loc>/post/2016-09-25-hadoop-popularity/</loc>
     <lastmod>2016-09-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2016-09-17-working-with-pigs/</loc>
+    <loc>/post/2016-09-17-working-with-pigs/</loc>
     <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</loc>
+    <loc>/post/2016-09-07-how-to-set-up-rstudio-on-aws-for-a-bioinformatics-class/</loc>
     <lastmod>2016-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/grupo-bimbo-report/</loc>
+    <loc>/post/grupo-bimbo-report/</loc>
     <lastmod>2016-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2015-09-07-meteor/</loc>
+    <loc>/post/2015-09-07-meteor/</loc>
     <lastmod>2015-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/2017-06-01-top-5-data-science-podcasts/</loc>
+    <loc>/post/2017-06-01-top-5-data-science-podcasts/</loc>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/page/about/</loc>
+    <loc>/page/about/</loc>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/categories/articles/</loc>
+    <loc>/categories/articles/</loc>
     <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/bigdata/</loc>
+    <loc>/tags/bigdata/</loc>
     <lastmod>2016-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/chicago/</loc>
+    <loc>/tags/chicago/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/competition/</loc>
+    <loc>/tags/competition/</loc>
     <lastmod>2016-12-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/correlation/</loc>
+    <loc>/tags/correlation/</loc>
     <lastmod>2016-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/data/</loc>
+    <loc>/tags/data/</loc>
     <lastmod>2016-12-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/data-exploration/</loc>
+    <loc>/tags/data-exploration/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/</loc>
+    <loc>/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/forecasting/</loc>
+    <loc>/tags/forecasting/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/meetup/</loc>
+    <loc>/tags/meetup/</loc>
     <lastmod>2016-12-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/page/</loc>
+    <loc>/page/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/prediction/</loc>
+    <loc>/tags/prediction/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/project/</loc>
+    <loc>/tags/project/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/categories/project/</loc>
+    <loc>/categories/project/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/tableau/</loc>
+    <loc>/tags/tableau/</loc>
     <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2016-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/timeseries/</loc>
+    <loc>/tags/timeseries/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://evolvedatascience.com/tags/visualization/</loc>
+    <loc>/tags/visualization/</loc>
     <lastmod>2015-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

@@ -7,6 +7,8 @@ bigimg: [{src: "img/feature-image-data-blue-short.jpg"}]
 
 Keith is a data loving nerd with a background in genetics who was seduced by business applications of statistical models and A/B testing. He has over 10 years of experience as a molecular geneticist with a focus on computational biology and statistical methods. He is currently transitioning into data science consulting.
 
+[Download my Resume (PDF)](../../img/Hultman-Resume.pdf)
+
 ### Scientific experience
 
 * Extensive experience in generating original research ideas, following through with vigorous literature research, experimental design and execution
