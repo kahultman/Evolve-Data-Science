@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Evolve Data Science</title>
-    <link>/categories/</link>
+    <link>http://evolvedatascience.com/categories/</link>
     <description>Recent content in Categories on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Mon, 07 Sep 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://evolvedatascience.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Articles</title>
-      <link>/categories/articles/</link>
+      <link>http://evolvedatascience.com/categories/articles/</link>
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>/categories/articles/</guid>
+      <guid>http://evolvedatascience.com/categories/articles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project</title>
-      <link>/categories/project/</link>
+      <link>http://evolvedatascience.com/categories/project/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>/categories/project/</guid>
+      <guid>http://evolvedatascience.com/categories/project/</guid>
       <description></description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tableau on Evolve Data Science</title>
-    <link>/tags/tableau/</link>
+    <link>http://evolvedatascience.com/tags/tableau/</link>
     <description>Recent content in Tableau on Evolve Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
     <lastBuildDate>Mon, 07 Sep 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/tableau/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://evolvedatascience.com/tags/tableau/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Meteorite Data Exploration</title>
-      <link>/post/2015-09-07-meteor/</link>
+      <link>http://evolvedatascience.com/post/2015-09-07-meteor/</link>
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
-      <guid>/post/2015-09-07-meteor/</guid>
+      <guid>http://evolvedatascience.com/post/2015-09-07-meteor/</guid>
       <description>Meteor data exploration on Tableau public</description>
     </item>
     
