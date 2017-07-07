@@ -1,0 +1,52 @@
+---
+title: ReallyIsTrump Tweet Predictor
+draft: true
+author: Keith Hultman
+date: '2017-07-07'
+slug: reallyistrump-tweet-predictor
+categories:
+  - project
+tags:
+  - twitter
+  - sentiment analysis
+  - tidytext
+subtitle: ''
+---
+
+## Determining if tweets from @realDonaldTrump are written by the President or his staff
+
+David Robinson had a [fantastic analysis](http://varianceexplained.org/r/trump-tweets/) of Donald Trump's twitter history during the 2016 presidential campaign. He looked at the difference in tweets from Android devices versus an iPhone and concluded that they were written by different individuals and that Donald Trump was likely using the Android device. This was helpful in tracking which tweets were sent by the candidate himself and those written by his campaign staff. However, in March, the new [president stopped using his Android phone](http://fifthdomain.com/2017/03/29/president-trump-doesnt-use-an-andriod-anymore/) - due to security issues with his aging Android device. 
+
+While switching devices might be good for national security, we now cannot use the device to distinguish between tweet authors. Fortunately, David's work showed that the content and style of tweets were distinct between Trump and his staff, and this could be used to predict whether it was written by the president himself. 
+
+## Analyzing @realDonaldTrump's recent twitter history
+
+I extracted recent tweets from @realDonaldTrump since the campaign and added them to David's original data set. All of the code from this project, including the script I used to extract tweets is found at [my github repository](https://github.com/kahultman/trump-tweets). To repeat my analysis you can also load my data set using the code below.
+
+```{r}
+load("alltweets.Rda")
+```
+
+Let's take a look at a timeline of tweets from Android and iPhone devices.
+
+
+```{r}
+ggplot(alltweets, aes(created, source)) + geom_jitter()
+```
+
+As was reported, @realDonaldTrump seems to have stopped using an Android phone in March. The last tweet using an Android phone was on 
+
+
+## Extract features for modelling
+
+## Build some predictive models
+
+I split the data into a training set, which included tweets from XXXX to XXXXX, and a test set that included tweets from XXXX to XXXXX. Both of these date ranges were within the time that @realDonaldTrump was using an Android phone. I then used the device type variable (Android vs iPhone) as a proxy for our target variable: "trump" vs "not trump", for training some predictive models.
+
+For the bag of words, I chose to use a naive Bayes model. It is fast with a large number of categorical features of the kind we get from the document term matrix. It can also handle incorporating additional features like sentiment score and whether a photo is included by simply adding those features to the document term matrix. 
+
+In addition to the naive Bayes model, I also built a random forest model, which did not outperform the naive Bayes prediction. 
+
+
+
+
