@@ -25,28 +25,65 @@ I extracted recent tweets from @realDonaldTrump since the campaign and added the
 
 ```{r}
 load("alltweets.Rda")
+alltweets.data.world <- read.csv("https://query.data.world/s/axuo7ehjpz52o8b8h9vsy6yi5", header=TRUE, stringsAsFactors=FALSE);
 ```
 
 Let's take a look at a timeline of tweets from Android and iPhone devices.
 
 
 ```{r}
-ggplot(alltweets, aes(created, source)) + geom_jitter()
+ggplot(alltweets, aes(created, source)) + 
+  geom_jitter() +
+  ggtitle("Timeline of @realDonaldTrump twitter activity by source") +
+  xlab("Date of Tweet") + ylab("Source")
+
+alltweets %>% select(created, source, text) %>% 
+  filter(source == "Android") %>% top_n(5, created)
+
 ```
 
-As was reported, @realDonaldTrump seems to have stopped using an Android phone in March. The last tweet using an Android phone was on 
-
+As was reported, @realDonaldTrump seems to have stopped using an Android phone in March. The last tweet from an Android phone was on March 8, 2017. Since Trump is not tweeting from his Android phone anymore, can we use information in the tweets themselves to predict whether he personally wrote them? 
 
 ## Extract features for modelling
 
+These are the features that were different between Android and non-Android that will be used to build the model. Most of these features were identified during David's initial analysis, here we are using them to build a predictive model.
+
+* Contains quotes (trump)
+* Contains image or url (not trump)
+* Contains hashtag
+* Time of day
+* Day of the week
+* Sentiment score on 10 emotional measures (anger, anticipation, disgust, fear, joy, negative, positive, sadness, surprise, trust) 
+
+To these features we can also include a bag of words that distinguish the tweets as well. 
+
 ## Build some predictive models
 
-I split the data into a training set, which included tweets from XXXX to XXXXX, and a test set that included tweets from XXXX to XXXXX. Both of these date ranges were within the time that @realDonaldTrump was using an Android phone. I then used the device type variable (Android vs iPhone) as a proxy for our target variable: "trump" vs "not trump", for training some predictive models.
+To build a model based on the time frame when @realDonaldTrump was using an Android phone, I collected his tweets from Dec 14, 2015 to March 8, 2017. This analysis assumes that prior to March 8, Trump exclusively used his Android device for his tweets and his staff exclusively used an iPhone or other device. Of course, there probably are exceptions to this rule, for example if Trump grabbed his staffs iPhone for a quick tweet while his was on the charger. But this is an unbiased method for training our model. An alternative method would be to have humans classify whether they *think* the tweets were written by trump or not, in which case that model might be better at automatically classifying Trump-like tweets. However, it is just as likely that Trump occasionally writes an un-Trump-like tweet, or his staff attempt to emulate his phrasing. I therefore used the device-type variable (Android vs iPhone) as a proxy for our target variable: "trump" vs "not trump", for training some predictive models. I then randomly split the 2073 total tweets into a training and test set with an 80:20 split while maintaining the ratio of "trump" to "not trump" tweets.
 
 For the bag of words, I chose to use a naive Bayes model. It is fast with a large number of categorical features of the kind we get from the document term matrix. It can also handle incorporating additional features like sentiment score and whether a photo is included by simply adding those features to the document term matrix. 
 
 In addition to the naive Bayes model, I also built a random forest model, which did not outperform the naive Bayes prediction. 
 
 
+```{r}
+convert_counts <- function(x){
+  x <- as.factor(ifelse(x > 0, "Yes", "No"))
+}
+
+tweet_train <- tweet_train %>% 
+  mutate_each(funs(convert_counts), starts_with("sentiment")) 
+  
+tweet_test <- tweet_test %>% 
+  mutate_each(funs(convert_counts), starts_with("sentiment"))
+ 
+tweet_train_variables <- tweet_train %>% select(-id, -text)
+
+tweet_nb <- naiveBayes(trump~., data = tweet_train_variables, laplace = 1)
+tweet_test$nb_pred <- predict(tweet_nb, newdata = tweet_test)
+
+nb_cm <- confusionMatrix(tweet_test$nb_pred,tweet_test$trump, positive = "trump")
+nb_cm
+```
 
 
