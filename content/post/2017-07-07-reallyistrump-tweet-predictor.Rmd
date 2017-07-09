@@ -17,7 +17,7 @@ subtitle: ''
 
 David Robinson had a [fantastic analysis](http://varianceexplained.org/r/trump-tweets/) of Donald Trump's twitter history during the 2016 presidential campaign. He looked at the difference in tweets from Android devices versus an iPhone and concluded that they were written by different individuals and that Donald Trump was likely using the Android device. This was helpful in tracking which tweets were sent by the candidate himself and those written by his campaign staff. However, in March, the new [president stopped using his Android phone](http://fifthdomain.com/2017/03/29/president-trump-doesnt-use-an-andriod-anymore/) - due to security issues with his aging Android device. 
 
-While switching devices might be good for national security, we now cannot use the device to distinguish between tweet authors. Fortunately, David's work showed that the content and style of tweets were distinct between Trump and his staff, and this could be used to predict whether it was written by the president himself. 
+While switching devices might be a boon for our nation's security, the public can no longer distinguish between tweet authors solely based on device usage. Fortunately, David's work showed that the content and style of tweets were distinct between Trump and his staff, and these distinguishing characteristics could be used to predict whether it was written by the president himself. 
 
 ## Analyzing @realDonaldTrump's recent twitter history
 
