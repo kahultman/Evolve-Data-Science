@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>ReallyIsTrump Tweet Predictor</title>
+  <meta property="og:title" content="ReallyIsTrump Tweet Predictor" />
+  <meta name="twitter:title" content="ReallyIsTrump Tweet Predictor" />
+  <meta name="description" content="Determining if tweets from @realDonaldTrump are written by the President or his staff Donald Trump’s proclivity for using Twitter has changed how the White House interacts with the media and broadcasts to the president’s followers. It’s also lead to a birth of a new academic subject and hobby for data analysts. People have studied how engagement has changed during his first 100 days and conducted sentiment analysis of his tweets both during the campaign and as president.">
+  <meta property="og:description" content="Determining if tweets from @realDonaldTrump are written by the President or his staff Donald Trump’s proclivity for using Twitter has changed how the White House interacts with the media and broadcasts to the president’s followers. It’s also lead to a birth of a new academic subject and hobby for data analysts. People have studied how engagement has changed during his first 100 days and conducted sentiment analysis of his tweets both during the campaign and as president.">
+  <meta name="twitter:description" content="Determining if tweets from @realDonaldTrump are written by the President or his staff Donald Trump’s proclivity for using Twitter has changed how the White House interacts with the media and …">
+  <meta name="author" content="Keith Hultman"/>
+  <link href='../../img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/img/avatar-icon.png" />
+  <meta name="twitter:image" content="/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@keithhultman" />
+  <meta name="twitter:creator" content="@keithhultman" />
+  <meta property="og:url" content="/post/reallyistrump-tweet-predictor/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Evolve Data Science" />
+
+  <meta name="generator" content="Hugo 0.24" />
+  <link rel="canonical" href="../../post/reallyistrump-tweet-predictor/" />
+  <link rel="alternate" href="../../index.xml" type="application/rss+xml" title="Evolve Data Science">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="../../css/pygment_highlights.css" />
+  <link rel="stylesheet" href="../../css/highlight.min.css" />
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-88236006-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../">Evolve Data Science</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="../../">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Projects</a>
+              <div class="navlinks-children">
+                
+                  <a href="../../post/forecasting-divvy-bikesharing-traffic/">Divvy Forecasting</a>
+                
+                  <a href="../../post/2016-12-17-wnv-blogpost/">West Nile Virus</a>
+                
+                  <a href="../../post/grupo-bimbo-report/">Grupo Bimbo</a>
+                
+                  <a href="../../post/2015-09-07-meteor">Meteor Data Exploration</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="../../page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="../../tags">Tags</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Blogroll</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://www.r-bloggers.com/">R-bloggers</a>
+                
+              </div>
+            </li>
+          
+        
+
+        
+
+        
+          <li>
+            <a href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Evolve Data Science" href="../../">
+            <img class="avatar-img" src="../../img/avatar-icon.png" alt="Evolve Data Science" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+  <div id="modalSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Search Evolve Data Science</h4>
+        </div>
+        <div class="modal-body">
+          <gcse:search></gcse:search>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>ReallyIsTrump Tweet Predictor</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on July 7, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <div id="determining-if-tweets-from-realdonaldtrump-are-written-by-the-president-or-his-staff" class="section level2">
+<h2>Determining if tweets from <span class="citation">@realDonaldTrump</span> are written by the President or his staff</h2>
+<p>Donald Trump’s proclivity for using Twitter has changed how the White House interacts with the media and broadcasts to the president’s followers. It’s also lead to a birth of a new academic subject and hobby for data analysts. People have studied how <a href="http://www.independent.co.uk/news/world/americas/us-politics/trump-twitter-less-popular-barack-obama-tweets-north-korea-china-shares-fake-news-a7709871.html">engagement has changed during his first 100 days</a> and conducted sentiment analysis of his tweets both during the campaign and as <a href="http://www.npr.org/2017/04/30/526106612/what-we-learned-about-the-mood-of-trumps-tweets">president</a>. There are data archives maintained for all of <span class="citation">[@realDonaldTrump's tweet history]</span>(<a href="http://www.trumptwitterarchive.com/" class="uri">http://www.trumptwitterarchive.com/</a>) and for <a href="https://factba.se/topic/deleted-tweets">just his deleted tweets</a>, as he has been known to delete tweets <a href="https://www.cnet.com/news/11-deleted-tweets-from-president-trumps-first-100-days/">from</a> <a href="http://www.newsweek.com/trump-deletes-tweet-stating-honor-meet-mahmoud-abbas-595178">time</a> to <a href="http://theweek.com/speedreads/702090/trump-tweets-deletes-comments-nato-gianforte">time</a>.</p>
+<p>David Robinson at Stack Overflow had a <a href="http://varianceexplained.org/r/trump-tweets/">fantastic analysis</a> of Donald Trump’s twitter history during the 2016 presidential campaign. He looked at the difference in tweets from Android devices versus an iPhone and concluded that they were written by different individuals and that Donald Trump was likely using the Android device. This was helpful in tracking which tweets were sent by the candidate himself and those written by his campaign staff. However, in March, the new <a href="http://fifthdomain.com/2017/03/29/president-trump-doesnt-use-an-andriod-anymore/">president stopped using his Android phone</a> - due to security issues with his aging Android device.</p>
+<p>While switching devices might be a boon for our nation’s security, the public can no longer distinguish between tweet authors solely based on device usage. Fortunately, David’s work showed that the content and style of tweets were distinct between Trump and his staff, and these distinguishing characteristics could be used to predict whether it was written by the president himself.</p>
+</div>
+<div id="analyzing-realdonaldtrumps-recent-twitter-history" class="section level2">
+<h2>Analyzing <span class="citation">@realDonaldTrump</span>’s recent twitter history</h2>
+<p>I extracted recent tweets from <span class="citation">@realDonaldTrump</span> since the campaign and added them to David’s original data set. All of the code from this project, including the script I used to extract tweets is found at <a href="https://github.com/kahultman/trump-tweets">my github repository</a>. To repeat my analysis you can also load my data set using the code below.</p>
+<pre class="r"><code>load(url(&quot;https://github.com/kahultman/trump-tweets/raw/master/data/alltweets-processed.Rdata&quot;))</code></pre>
+<p>Let’s take a look at a timeline of tweets from Android and iPhone devices.</p>
+<pre class="r"><code>library(tidyverse)
+ggplot(alltweets2, aes(created, source)) + 
+  geom_jitter() +
+  ggtitle(&quot;Timeline of @realDonaldTrump twitter activity by source&quot;) +
+  xlab(&quot;Date of Tweet&quot;) + ylab(&quot;Source&quot;)</code></pre>
+<p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/timeline-1.png" width="672" /></p>
+<p>As was reported, <span class="citation">@realDonaldTrump</span> seems to have stopped using an Android phone in March. The last tweet from an Android phone was on March 8, 2017.</p>
+<pre class="r"><code>alltweets2 %&gt;%  
+  filter(source == &quot;Android&quot;) %&gt;% top_n(5, created) %&gt;% 
+  select(text)</code></pre>
+<pre><code>## # A tibble: 5 x 1
+##                                                                          text
+##                                                                         &lt;chr&gt;
+## 1 LinkedIn Workforce Report: January and February were the strongest consecut
+## 2 Don&#39;t let the FAKE NEWS tell you that there is big infighting in the Trump 
+## 3 I am working on a new system where there will be competition in the Drug In
+## 4 Don&#39;t worry, getting rid of state lines, which will promote competition, wi
+## 5 &quot;For eight years Russia \&quot;ran over\&quot; President Obama, got stronger and stro</code></pre>
+<p>Since Trump is not tweeting from his Android phone anymore, can we use information in the tweets themselves to predict whether he personally wrote them?</p>
+</div>
+<div id="extract-features-for-modelling" class="section level2">
+<h2>Extract features for modelling</h2>
+<p>These are the features that were different between Android and non-Android that will be used to build the model. Most of these features were identified during David’s initial analysis, here we are using them to build a predictive model.</p>
+<ul>
+<li>Contains quotes (trump)</li>
+<li>Contains image or url (not trump)</li>
+<li>Contains hashtag</li>
+<li>Time of day</li>
+<li>Day of the week</li>
+<li>Sentiment score on 10 emotional measures (anger, anticipation, disgust, fear, joy, negative, positive, sadness, surprise, trust)</li>
+</ul>
+<p>To these features we can also include a bag of words that distinguish the tweets as well.</p>
+</div>
+<div id="build-some-predictive-models" class="section level2">
+<h2>Build some predictive models</h2>
+<p>To build a model based on the time frame when <span class="citation">@realDonaldTrump</span> was using an Android phone, I collected his tweets from Dec 14, 2015 to March 8, 2017. This analysis assumes that prior to March 8, Trump exclusively used his Android device for his tweets and his staff exclusively used an iPhone or other device. Of course, there probably are exceptions to this rule, for example if Trump grabbed his staffs iPhone for a quick tweet while his was on the charger. But this is an unbiased method for training our model. An alternative method would be to have humans classify whether they <em>think</em> the tweets were written by trump or not, in which case that model might be better at automatically classifying Trump-like tweets. However, it is just as likely that Trump occasionally writes an un-Trump-like tweet, or his staff attempt to emulate his phrasing. I therefore used the device-type variable (Android vs iPhone) as a proxy for our target variable: “trump” vs “not trump”, for training some predictive models. I then randomly split the 2073 total tweets into a training and testing set with an 80:20 split while maintaining the ratio of “trump” to “not trump” tweets.</p>
+<p>For the bag of words, I chose to use a naive Bayes model. It is fast with a large number of categorical features of the kind we get from the document term matrix. It can also handle incorporating additional features like sentiment score and whether a photo is included by simply adding those features to the document term matrix.</p>
+<p>In addition to the naive Bayes model, I also built a random forest model, which did not outperform the naive Bayes prediction.</p>
+<pre class="r"><code>library(e1071)
+library(caret)
+
+convert_counts &lt;- function(x){
+  x &lt;- as.factor(ifelse(x &gt; 0, &quot;Yes&quot;, &quot;No&quot;))
+}
+
+alltweets2 &lt;- alltweets2 %&gt;% 
+  mutate_each(funs(convert_counts), starts_with(&quot;sentiment&quot;)) %&gt;% 
+  mutate(tod = as.factor(tod))
+  
+# Split into training and test sets
+train_tweet &lt;- alltweets2 %&gt;% 
+  filter(date.time &lt; &quot;2017-03-08&quot;) %&gt;% 
+  mutate(trump = as.factor(if_else(source == &quot;Android&quot;, true = &quot;trump&quot;, false = &quot;not trump&quot;))) %&gt;% 
+  select(-source, -created, -date.time)
+
+set.seed(45)
+in_training &lt;- createDataPartition(train_tweet$trump, times = 1, p = 0.8, list = FALSE)
+tweet_test &lt;- train_tweet[-in_training,] 
+tweet_train &lt;- train_tweet[in_training,] 
+
+# Train Naive Bayes Model
+tweet_nb &lt;- naiveBayes(trump~., data = tweet_train[,3:18], laplace = 1)
+
+# Predict on test set
+tweet_test$nb_pred &lt;- predict(tweet_nb, newdata = tweet_test)
+
+# Examine confustion matrix on test set 
+nb_cm &lt;- confusionMatrix(tweet_test$nb_pred,tweet_test$trump, positive = &quot;trump&quot;)
+nb_cm</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##            Reference
+## Prediction  not trump trump
+##   not trump       158     9
+##   trump            48   186
+##                                           
+##                Accuracy : 0.8579          
+##                  95% CI : (0.8198, 0.8905)
+##     No Information Rate : 0.5137          
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+##                                           
+##                   Kappa : 0.717           
+##  Mcnemar&#39;s Test P-Value : 4.823e-07       
+##                                           
+##             Sensitivity : 0.9538          
+##             Specificity : 0.7670          
+##          Pos Pred Value : 0.7949          
+##          Neg Pred Value : 0.9461          
+##              Prevalence : 0.4863          
+##          Detection Rate : 0.4638          
+##    Detection Prevalence : 0.5835          
+##       Balanced Accuracy : 0.8604          
+##                                           
+##        &#39;Positive&#39; Class : trump           
+## </code></pre>
+<p>The model’s overall accuracy is ~86%. It’s very good at classifying trump’s actual tweets (~95% sensitivity) but will sometimes call a staff member’s tweet as Trump’s incorrectly (~77% Specificity). There were only 9 of Trump’s tweets that we incorrectly classified as his staffs - let’s take a look at them.</p>
+<pre class="r"><code>tweet_test %&gt;% 
+  filter(trump == &quot;trump&quot;, nb_pred == &quot;not trump&quot;)</code></pre>
+<pre><code>## # A tibble: 9 x 19
+##                   id
+##                &lt;chr&gt;
+## 1 760552601356267520
+## 2 759027356434518016
+## 3 757577508346888192
+## 4 751115433273688064
+## 5 744225952465489920
+## 6 724055614498955265
+## 7 707309366064578564
+## 8 701437415047700482
+## 9 825690087857995776
+## # ... with 18 more variables: text &lt;chr&gt;, quote &lt;lgl&gt;, picture &lt;lgl&gt;,
+## #   hashtag &lt;lgl&gt;, dow &lt;ord&gt;, tod &lt;fctr&gt;, sentimentanger &lt;fctr&gt;,
+## #   sentimentanticipation &lt;fctr&gt;, sentimentdisgust &lt;fctr&gt;,
+## #   sentimentfear &lt;fctr&gt;, sentimentjoy &lt;fctr&gt;, sentimentnegative &lt;fctr&gt;,
+## #   sentimentpositive &lt;fctr&gt;, sentimentsadness &lt;fctr&gt;,
+## #   sentimentsurprise &lt;fctr&gt;, sentimenttrust &lt;fctr&gt;, trump &lt;fctr&gt;,
+## #   nb_pred &lt;fctr&gt;</code></pre>
+<p>By examining each variable and the naive Bayes model’s conditional probabilities for each variable we can get a sense on why each tweet was predicted to be not trump. Six of them have pictures and hashtags, which heavily implicate a not trump call.</p>
+<p>Let’s take a look at how the model has been classifying the tweets over time, to make sure there isn’t a difference in our predictive ability over time.</p>
+<pre class="r"><code>library(lubridate)
+
+alltweets2_model &lt;- alltweets2 %&gt;% 
+  select(quote, picture, hashtag, dow, tod, starts_with(&quot;sentiment&quot;), id, text, created, date.time, source)
+
+load(url(&quot;https://github.com/kahultman/trump-tweets/raw/master/data/tweet_nb.Rdata&quot;))
+
+alltweets2_model$prediction &lt;- predict(tweet_nb, newdata = alltweets2_model[,1:15])
+
+alltweets2_model %&gt;% 
+  mutate(date = date(date.time)) %&gt;% 
+  group_by(date, prediction, source) %&gt;% 
+  summarise(daily_count = n()) %&gt;% 
+  ggplot(aes(x=date, y=daily_count)) +
+  geom_line(aes(group = prediction, color= prediction)) +
+  facet_grid(source~.) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2016-11-08&quot;)))) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2017-03-08&quot;)))) +
+  annotate(geom = &quot;label&quot;, label = &quot;Election Day&quot;, x= ymd(&quot;2016-11-08&quot;), y = 30) +
+  annotate(geom = &quot;label&quot;, label = &quot;Last Android Use&quot;, x= ymd(&quot;2017-03-08&quot;), y = 25) +
+  ggtitle(&quot;Timeline of Naive Bayes classifier predictions of \n@realDonaldTrump twitter activity by source over time&quot;) +
+  xlab(&quot;Date of Tweet&quot;) + ylab(&quot;Tweets per day&quot;) </code></pre>
+<p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/timeline%20of%20predictions-1.png" width="672" /></p>
+<p>We can also remake the jitter plot from above, but color in how the model predicted each tweet.</p>
+<pre class="r"><code>ggplot(alltweets2_model, aes(date(date.time), source)) + 
+  geom_jitter(aes(color = prediction)) +
+  ggtitle(&quot;Naive Bayes classifier predictions of @realDonaldTrump twitter activity by source&quot;) +
+  xlab(&quot;Date of Tweet&quot;) + ylab(&quot;Source&quot;) </code></pre>
+<p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/prediction%20jitter-1.png" width="672" /></p>
+<p>There are several notable timepoints where twitter activity changes, which I annotate below. The first drop off occurs right around the time of David Robinson’s analysis. It’s possible that this drop off was because The Donald was ashamed after the ‘unmasking’ of his identity in his tweets and his negative twitter sentiment compared to his staff. However, it might be due to the difference how we collected the data with the Twitter API. I suspect there is an issue in how much data we were able to obtain from the twitter API, but I need to look into it further, since I could be missing some additional tweets. Twitter activity picks up again near the Access Hollywood tape release on October 7. Then it drops dramatically after the election - especially from the iPhone. The low activity continues through the transition and the iPhone usage from ‘not trump’ appears fairly stable once the Trump administration is sworn in.</p>
+<pre class="r"><code>ggplot(alltweets2_model, aes(date(date.time), source)) + 
+  geom_jitter(aes(color = prediction)) +
+  ggtitle(&quot;Naive Bayes classifier predictions of @realDonaldTrump twitter activity by source&quot;) +
+  xlab(&quot;Date of Tweet&quot;) + ylab(&quot;Source&quot;) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2016-11-08&quot;)))) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2016-10-07&quot;)))) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2017-03-08&quot;)))) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2016-08-09&quot;)))) +
+  annotate(geom = &quot;label&quot;, label = &quot;Election Day&quot;, x= ymd(&quot;2016-11-08&quot;), y = 1.4) +
+  annotate(geom = &quot;label&quot;, label = &quot;Access Hollywood&quot;, x= ymd(&quot;2016-10-07&quot;), y = 1.5) +
+  annotate(geom = &quot;label&quot;, label = &quot;Last Android Use&quot;, x= ymd(&quot;2017-03-08&quot;), y = 1) +
+  annotate(geom = &quot;label&quot;, label = &quot;Robinson&quot;, x= ymd(&quot;2016-08-09&quot;), y = 1.6) </code></pre>
+<p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/prediction%20jitter%20with%20annotation-1.png" width="672" /></p>
+<pre class="r"><code>alltweets2_model %&gt;% 
+  mutate(date = date(date.time)) %&gt;% 
+  group_by(date) %&gt;% 
+  summarise(daily.trump = sum(prediction == &quot;trump&quot;), daily.nottrump = sum(prediction == &quot;not trump&quot;)) %&gt;% 
+  gather(&quot;Prediction&quot;, &quot;Count&quot;, 2:3) %&gt;% 
+  ggplot(aes(x=date, y=Count)) +
+  geom_line(aes(group = Prediction, color= Prediction)) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2016-11-08&quot;)))) +
+  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2017-03-08&quot;)))) +
+  annotate(geom = &quot;label&quot;, label = &quot;Election Day&quot;, x= ymd(&quot;2016-11-08&quot;), y = 30) +
+  annotate(geom = &quot;label&quot;, label = &quot;Last Android Use&quot;, x= ymd(&quot;2017-03-08&quot;), y = 25) </code></pre>
+<p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>library(xts)</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## 
+## Attaching package: &#39;xts&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, last</code></pre>
+<pre class="r"><code>library(forecast)
+tweet_by_date &lt;- alltweets2_model %&gt;% 
+  mutate(date = date(date.time)) %&gt;% 
+  group_by(date) %&gt;% 
+  summarise(daily.trump = sum(prediction == &quot;trump&quot;), daily.nottrump = sum(prediction == &quot;not trump&quot;))
+
+trump_tweet.xts &lt;- xts(tweet_by_date$daily.trump, order.by = tweet_by_date$date)
+nottrump_tweet.xts &lt;- xts(tweet_by_date$daily.nottrump, order.by = tweet_by_date$date)
+
+autoplot(trump_tweet.xts) </code></pre>
+<p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>autoplot(nottrump_tweet.xts)</code></pre>
+<p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+</div>
+<div id="deployment-of-the-model-via-the-reallyistrump-titter-bot" class="section level2">
+<h2>Deployment of the model via the <span class="citation">@ReallyIsTrump</span> Titter bot</h2>
+<p>To implement the model, I wrote an R script that culls the most recent 10 tweets from <span class="citation">@realDonaldTrump</span> and predicts whether it was likely to be from Trump himself or his staff using the naive Bayes model on the above features. Tweets that are new and are predicted to be from Trump are then replied to by my Twitter Bot <span class="citation">@ReallyIsTrump</span>. You can follow both <span class="citation">@realDonaldTrump</span> and <span class="citation">@ReallyIsTrump</span> to see how the model is classifying each of his tweets. I would like to eventually have my script triggered by tweet activity, but for now I automated it by scheduling a cronjob to run every 10 minutes.</p>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="../../post/forecasting-divvy-bikesharing-traffic/" data-toggle="tooltip" data-placement="top" title="Forecasting Divvy bikesharing traffic">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'keithhultman';
+    var disqus_identifier = '\/post\/reallyistrump-tweet-predictor\/';
+    var disqus_title = 'ReallyIsTrump Tweet Predictor';
+    var disqus_url = '\/post\/reallyistrump-tweet-predictor\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:keithh@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/kahultman" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/keithhultman" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/keithhultman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="../../index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Keith Hultman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="../../">Evolve Data Science</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.24</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+<script>
+  (function() {
+    var cx = '004728632483242462951:s8-btxavfju';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
+
+  </body>
+</html>
+
