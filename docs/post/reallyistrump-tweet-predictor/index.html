@@ -369,8 +369,8 @@ alltweets2_model %&gt;%
   annotate(geom = &quot;label&quot;, label = &quot;Robinson&quot;, x= ymd(&quot;2016-08-09&quot;), y = 1.6) </code></pre>
 <p><img src="../../post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/prediction%20jitter%20with%20annotation-1.png" width="672" /></p>
 </div>
-<div id="deployment-of-the-model-via-the-reallyistrump-titter-bot" class="section level2">
-<h2>Deployment of the model via the <span class="citation">@ReallyIsTrump</span> Titter bot</h2>
+<div id="deployment-of-the-model-via-the-reallyistrump-twitter-bot" class="section level2">
+<h2>Deployment of the model via the <span class="citation">@ReallyIsTrump</span> Twitter bot</h2>
 <p>To deploy the model’s predictions on new tweets in near-real-time, I wrote an R script that culls the most recent tweets from <span class="citation">@realDonaldTrump</span> and predicts whether each was likely to be from Trump himself or his staff using the naive Bayes model on the above features. Tweets that are new and are predicted to be from Trump are then ‘replied to’ by my Twitter Bot <span class="citation">[@ReallyIsTrump]</span>(<a href="https://twitter.com/ReallyIsTrump" class="uri">https://twitter.com/ReallyIsTrump</a>). You can follow both <span class="citation">@realDonaldTrump</span> and <span class="citation">@ReallyIsTrump</span> to see how the model is classifying each of his tweets. I would like to eventually have my script triggered by tweet activity, but for now I automated it by scheduling a cronjob to run my script every 10 minutes. Here is the most recent tweet from <span class="citation">@realDonaldTrump</span> that the model predicts as ‘likely trump.’</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Yep, this is me. <a href="https://twitter.com/realDonaldTrump">@realDonaldTrump</a></p>&mdash; Really Is Trump (@ReallyIsTrump) <a href="https://twitter.com/ReallyIsTrump/status/884379186361749504">July 10, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

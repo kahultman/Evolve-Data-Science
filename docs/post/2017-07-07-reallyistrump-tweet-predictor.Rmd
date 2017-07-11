@@ -173,7 +173,7 @@ ggplot(alltweets2_model, aes(date(date.time), source)) +
   annotate(geom = "label", label = "Robinson", x= ymd("2016-08-09"), y = 1.6) 
 ```
 
-## Deployment of the model via the @ReallyIsTrump Titter bot
+## Deployment of the model via the @ReallyIsTrump Twitter bot
 
 To deploy the model's predictions on new tweets in near-real-time, I wrote an R script that culls the most recent tweets from @realDonaldTrump and predicts whether each was likely to be from Trump himself or his staff using the naive Bayes model on the above features. Tweets that are new and are predicted to be from Trump are then 'replied to' by my Twitter Bot [@ReallyIsTrump](https://twitter.com/ReallyIsTrump). You can follow both @realDonaldTrump and @ReallyIsTrump to see how the model is classifying each of his tweets. I would like to eventually have my script triggered by tweet activity, but for now I automated it by scheduling a cronjob to run my script every 10 minutes. Here is the most recent tweet from @realDonaldTrump that the model predicts as 'likely trump.'
 
