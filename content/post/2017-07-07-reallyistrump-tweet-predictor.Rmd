@@ -9,12 +9,13 @@ tags:
 - twitter
 - sentiment analysis
 - tidytext
+- R
 categories: project
 ---
 
 ## Determining if tweets from @realDonaldTrump are written by the President or his staff
 
-Donald Trumps proclivity for using Twitter has changed how the White House interacts with the media and broadcasts to the president's followers. It's also lead to a birth of a new academic subject and hobby for data analysts. People have studied how [engagement has changed during his first 100 days](http://www.independent.co.uk/news/world/americas/us-politics/trump-twitter-less-popular-barack-obama-tweets-north-korea-china-shares-fake-news-a7709871.html) and conducted sentiment analysis of his tweets both during the campaign and as [president](http://www.npr.org/2017/04/30/526106612/what-we-learned-about-the-mood-of-trumps-tweets). There are data archives maintained for all of [@realDonaldTrump's tweet history](http://www.trumptwitterarchive.com/) and for [just his deleted tweets](https://factba.se/topic/deleted-tweets), as he has been known to delete tweets [from](https://www.cnet.com/news/11-deleted-tweets-from-president-trumps-first-100-days/) [time](http://www.newsweek.com/trump-deletes-tweet-stating-honor-meet-mahmoud-abbas-595178) to [time](http://theweek.com/speedreads/702090/trump-tweets-deletes-comments-nato-gianforte). 
+Donald Trump's proclivity for using Twitter has changed how the White House interacts with the media and broadcasts to the president's followers. It's also lead to a birth of a new academic subject and hobby for data analysts. People have studied how [engagement has changed during his first 100 days](http://www.independent.co.uk/news/world/americas/us-politics/trump-twitter-less-popular-barack-obama-tweets-north-korea-china-shares-fake-news-a7709871.html) and conducted sentiment analysis of his tweets both during the campaign and as [president](http://www.npr.org/2017/04/30/526106612/what-we-learned-about-the-mood-of-trumps-tweets). There are data archives maintained for all of [@realDonaldTrump's tweet history](http://www.trumptwitterarchive.com/) and for [just his deleted tweets](https://factba.se/topic/deleted-tweets), as he has been known to delete tweets [from](https://www.cnet.com/news/11-deleted-tweets-from-president-trumps-first-100-days/) [time](http://www.newsweek.com/trump-deletes-tweet-stating-honor-meet-mahmoud-abbas-595178) to [time](http://theweek.com/speedreads/702090/trump-tweets-deletes-comments-nato-gianforte). 
 
 David Robinson at Stack Overflow had a [fantastic analysis](http://varianceexplained.org/r/trump-tweets/) of Donald Trump's twitter history during the 2016 presidential campaign. He looked at the difference in tweets from Android devices versus an iPhone and concluded that they were written by different individuals and that Donald Trump was likely using the Android device. This was helpful in tracking which tweets were sent by the candidate himself and those written by his campaign staff. However, in March, the new [president stopped using his Android phone](http://fifthdomain.com/2017/03/29/president-trump-doesnt-use-an-andriod-anymore/) - due to security issues with his aging Android device. 
 
@@ -24,14 +25,14 @@ While switching devices might be good for national security, we now cannot use t
 
 I extracted recent tweets from @realDonaldTrump since the campaign and added them to David's original data set. All of the code from this project, including the script I used to extract tweets is found at [my github repository](https://github.com/kahultman/trump-tweets). To repeat my analysis you can also load my data set using the code below.
 
-```{r}
+```{r load data}
 load(url("https://github.com/kahultman/trump-tweets/raw/master/data/alltweets-processed.Rdata"))
 ```
 
 Let's take a look at a timeline of tweets from Android and iPhone devices.
 
 
-```{r}
+```{r timeline, message=FALSE, warning=FALSE}
 library(tidyverse)
 ggplot(alltweets2, aes(created, source)) + 
   geom_jitter() +
@@ -41,9 +42,10 @@ ggplot(alltweets2, aes(created, source)) +
 
 As was reported, @realDonaldTrump seems to have stopped using an Android phone in March. The last tweet from an Android phone was on March 8, 2017. 
 
-```{r}
-alltweets2 %>% select(created, source, text) %>% 
-  filter(source == "Android") %>% top_n(5, created)
+```{r last android tweets}
+alltweets2 %>%  
+  filter(source == "Android") %>% top_n(5, created) %>% 
+  select(text)
 ```
 
 Since Trump is not tweeting from his Android phone anymore, can we use information in the tweets themselves to predict whether he personally wrote them? 
@@ -70,7 +72,7 @@ For the bag of words, I chose to use a naive Bayes model. It is fast with a larg
 In addition to the naive Bayes model, I also built a random forest model, which did not outperform the naive Bayes prediction. 
 
 
-```{r}
+```{r naive bayes, message=FALSE, warning=FALSE}
 library(e1071)
 library(caret)
 
@@ -106,7 +108,7 @@ nb_cm
 
 The model's overall accuracy is ~86%. It's very good at classifying trump's actual tweets (~95% sensitivity) but will sometimes call a staff member's tweet as Trump's incorrectly (~77% Specificity). There were only 9 of Trump's tweets that we incorrectly classified as his staffs - let's take a look at them. 
 
-```{r}
+```{r false negatives}
 tweet_test %>% 
   filter(trump == "trump", nb_pred == "not trump")
 ```
@@ -115,7 +117,7 @@ By examining each variable and the naive Bayes model's conditional probabilities
 
 Let's take a look at how the model has been classifying the tweets over time, to make sure there isn't a difference in our predictive ability over time.
 
-```{r}
+```{r timeline of predictions, message=FALSE, warning=FALSE}
 library(lubridate)
 
 alltweets2_model <- alltweets2 %>% 
@@ -142,7 +144,7 @@ alltweets2_model %>%
 
 We can also remake the jitter plot from above, but color in how the model predicted each tweet. 
 
-```{r}
+```{r prediction jitter}
 ggplot(alltweets2_model, aes(date(date.time), source)) + 
   geom_jitter(aes(color = prediction)) +
   ggtitle("Naive Bayes classifier predictions of @realDonaldTrump twitter activity by source") +
@@ -151,7 +153,7 @@ ggplot(alltweets2_model, aes(date(date.time), source)) +
 
 There are several notable timepoints where twitter activity changes, which I annotate below. The first drop off occurs right around the time of David Robinson's analysis. It's possible that this drop off was because The Donald was ashamed after the 'unmasking' of his identity in his tweets and his negative twitter sentiment compared to his staff. However, it might be due to the difference how we collected the data with the Twitter API. I suspect there is an issue in how much data we were able to obtain from the twitter API, but I need to look into it further, since I could be missing some additional tweets. Twitter activity picks up again near the Access Hollywood tape release on October 7. Then it drops dramatically after the election - especially from the iPhone. The low activity continues through the transition and the iPhone usage from 'not trump' appears fairly stable once the Trump administration is sworn in. 
 
-```{r}
+```{r prediction jitter with annotation}
 ggplot(alltweets2_model, aes(date(date.time), source)) + 
   geom_jitter(aes(color = prediction)) +
   ggtitle("Naive Bayes classifier predictions of @realDonaldTrump twitter activity by source") +
