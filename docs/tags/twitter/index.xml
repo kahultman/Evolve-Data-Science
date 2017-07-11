@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
     <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
-    <lastBuildDate>Fri, 07 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://evolvedatascience.com/tags/twitter/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>ReallyIsTrump Tweet Predictor</title>
       <link>http://evolvedatascience.com/post/reallyistrump-tweet-predictor/</link>
-      <pubDate>Fri, 07 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
       <author>keithh@gmail.com (Keith Hultman)</author>
       <guid>http://evolvedatascience.com/post/reallyistrump-tweet-predictor/</guid>
       <description>Determining if tweets from @realDonaldTrump are written by the President or his staff Donald Trump’s proclivity for using Twitter has changed how the White House interacts with the media and broadcasts to the president’s followers. It’s also lead to a birth of a new academic subject and hobby for data analysts. People have studied how engagement has changed during his first 100 days and conducted sentiment analysis of his tweets both during the campaign and as president.</description>
