@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tidytext on Evolve Data Science</title>
+    <link>/tags/tidytext/</link>
+    <description>Recent content in Tidytext on Evolve Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>keithh@gmail.com (Keith Hultman)</managingEditor>
+    <webMaster>keithh@gmail.com (Keith Hultman)</webMaster>
+    <lastBuildDate>Fri, 07 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/tidytext/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ReallyIsTrump Tweet Predictor</title>
+      <link>/post/reallyistrump-tweet-predictor/</link>
+      <pubDate>Fri, 07 Jul 2017 00:00:00 +0000</pubDate>
+      <author>keithh@gmail.com (Keith Hultman)</author>
+      <guid>/post/reallyistrump-tweet-predictor/</guid>
+      <description>Determining if tweets from @realDonaldTrump are written by the President or his staff Donald Trump’s proclivity for using Twitter has changed how the White House interacts with the media and broadcasts to the president’s followers. It’s also lead to a birth of a new academic subject and hobby for data analysts. People have studied how engagement has changed during his first 100 days and conducted sentiment analysis of his tweets both during the campaign and as president.</description>
+    </item>
+    
+  </channel>
+</rss>
