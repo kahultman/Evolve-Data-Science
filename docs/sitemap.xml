@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://evolvedatascience.com/post/reallyistrump-tweet-predictor/</loc>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://evolvedatascience.com/post/forecasting-divvy-bikesharing-traffic/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
   </url>
@@ -106,7 +111,7 @@
   
   <url>
     <loc>http://evolvedatascience.com/</loc>
-    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -129,7 +134,7 @@
   
   <url>
     <loc>http://evolvedatascience.com/post/</loc>
-    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -147,13 +152,19 @@
   
   <url>
     <loc>http://evolvedatascience.com/categories/project/</loc>
-    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://evolvedatascience.com/tags/r/</loc>
-    <lastmod>2016-12-17T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://evolvedatascience.com/tags/sentiment-analysis/</loc>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -170,8 +181,20 @@
   </url>
   
   <url>
+    <loc>http://evolvedatascience.com/tags/tidytext/</loc>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://evolvedatascience.com/tags/timeseries/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://evolvedatascience.com/tags/twitter/</loc>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

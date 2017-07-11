@@ -2,7 +2,6 @@
 title: "ReallyIsTrump Tweet Predictor"
 author: "Keith Hultman"
 date: '2017-07-07'
-draft: yes
 slug: reallyistrump-tweet-predictor
 subtitle: ''
 tags:

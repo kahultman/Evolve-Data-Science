@@ -2,7 +2,6 @@
 title: "ReallyIsTrump Tweet Predictor"
 author: "Keith Hultman"
 date: '2017-07-07'
-draft: yes
 slug: reallyistrump-tweet-predictor
 subtitle: ''
 tags:
@@ -57,13 +56,11 @@ ggplot(alltweets2, aes(created, source)) +
 <li>Day of the week</li>
 <li>Sentiment score on 10 emotional measures (anger, anticipation, disgust, fear, joy, negative, positive, sadness, surprise, trust)</li>
 </ul>
-<p>To these features we can also include a bag of words that distinguish the tweets as well.</p>
 </div>
 <div id="build-some-predictive-models" class="section level2">
 <h2>Build some predictive models</h2>
 <p>To build a model based on the time frame when <span class="citation">@realDonaldTrump</span> was using an Android phone, I collected his tweets from Dec 14, 2015 to March 8, 2017. This analysis assumes that prior to March 8, Trump exclusively used his Android device for his tweets and his staff exclusively used an iPhone or other device. Of course, there probably are exceptions to this rule, for example if Trump grabbed his staffs iPhone for a quick tweet while his was on the charger. But this is an unbiased method for training our model. An alternative method would be to have humans classify whether they <em>think</em> the tweets were written by trump or not, in which case that model might be better at automatically classifying Trump-like tweets. However, it is just as likely that Trump occasionally writes an un-Trump-like tweet, or his staff attempt to emulate his phrasing. I therefore used the device-type variable (Android vs iPhone) as a proxy for our target variable: “trump” vs “not trump”, for training some predictive models. I then randomly split the 2073 total tweets into a training and testing set with an 80:20 split while maintaining the ratio of “trump” to “not trump” tweets.</p>
-<p>For the bag of words, I chose to use a naive Bayes model. It is fast with a large number of categorical features of the kind we get from the document term matrix. It can also handle incorporating additional features like sentiment score and whether a photo is included by simply adding those features to the document term matrix.</p>
-<p>In addition to the naive Bayes model, I also built a random forest model, which did not outperform the naive Bayes prediction.</p>
+<p>I chose to use a naive Bayes model. I would like to incorporate a bag of words along with the previously mentioned features and the naive Bayes algorithm can handle the large number of categorical features a document term matrix would provide. It’s also quite a fast algorithm which would allow for real-time implementation. In addition to the naive Bayes model, I also built a random forest model, which had similar performance to the naive Bayes prediction.</p>
 <pre class="r"><code>library(e1071)
 library(caret)
 
@@ -123,28 +120,38 @@ nb_cm</code></pre>
 ## </code></pre>
 <p>The model’s overall accuracy is ~86%. It’s very good at classifying trump’s actual tweets (~95% sensitivity) but will sometimes call a staff member’s tweet as Trump’s incorrectly (~77% Specificity). There were only 9 of Trump’s tweets that we incorrectly classified as his staffs - let’s take a look at them.</p>
 <pre class="r"><code>tweet_test %&gt;% 
-  filter(trump == &quot;trump&quot;, nb_pred == &quot;not trump&quot;)</code></pre>
-<pre><code>## # A tibble: 9 x 19
-##                   id
-##                &lt;chr&gt;
-## 1 760552601356267520
-## 2 759027356434518016
-## 3 757577508346888192
-## 4 751115433273688064
-## 5 744225952465489920
-## 6 724055614498955265
-## 7 707309366064578564
-## 8 701437415047700482
-## 9 825690087857995776
-## # ... with 18 more variables: text &lt;chr&gt;, quote &lt;lgl&gt;, picture &lt;lgl&gt;,
-## #   hashtag &lt;lgl&gt;, dow &lt;ord&gt;, tod &lt;fctr&gt;, sentimentanger &lt;fctr&gt;,
-## #   sentimentanticipation &lt;fctr&gt;, sentimentdisgust &lt;fctr&gt;,
-## #   sentimentfear &lt;fctr&gt;, sentimentjoy &lt;fctr&gt;, sentimentnegative &lt;fctr&gt;,
-## #   sentimentpositive &lt;fctr&gt;, sentimentsadness &lt;fctr&gt;,
-## #   sentimentsurprise &lt;fctr&gt;, sentimenttrust &lt;fctr&gt;, trump &lt;fctr&gt;,
-## #   nb_pred &lt;fctr&gt;</code></pre>
-<p>By examining each variable and the naive Bayes model’s conditional probabilities for each variable we can get a sense on why each tweet was predicted to be not trump. Six of them have pictures and hashtags, which heavily implicate a not trump call.</p>
-<p>Let’s take a look at how the model has been classifying the tweets over time, to make sure there isn’t a difference in our predictive ability over time.</p>
+  filter(trump == &quot;trump&quot;, nb_pred == &quot;not trump&quot;) %&gt;% 
+  select(text)</code></pre>
+<pre><code>## # A tibble: 9 x 1
+##                                                                          text
+##                                                                         &lt;chr&gt;
+## 1 President Obama will go down as perhaps the worst president in the history 
+## 2 If Michael Bloomberg ran again for Mayor of New York, he wouldn&#39;t get 10% o
+## 3 Great POLL numbers are coming out all over. People don&#39;t want another four 
+## 4 Just leaving D.C. Had great meetings with Republicans in the House and Sena
+## 5                                       In Las Vegas, getting ready to speak!
+## 6 .@Borisep was great on @JudgeJeanine tonight. Very smart commentary that wi
+## 7 The negative television commercials about me, paid for by the politicians b
+## 8                                                 Thank you South Carolina!  
+## 9 Somebody with aptitude and conviction should buy the FAKE NEWS and failing</code></pre>
+<p>By examining each variable and the naive Bayes model’s conditional probabilities for each variable we can get a sense on why each tweet was predicted to be not trump. Six of them have pictures and hashtags, which heavily implicate a ‘not trump’ call.</p>
+<p>Let’s take a look at how the model has been classifying the tweets since March 8, 2017.</p>
+<pre class="r"><code>load(url(&quot;https://github.com/kahultman/trump-tweets/raw/master/data/future.Rdata&quot;))
+future &lt;- future %&gt;% 
+  mutate_each(funs(convert_counts), starts_with(&quot;sentiment&quot;)) %&gt;% 
+  mutate(tod = as.factor(tod))
+
+future$nb_pred &lt;- predict(tweet_nb, newdata = future, type = &quot;class&quot;)</code></pre>
+<pre><code>## Warning in data.matrix(newdata): NAs introduced by coercion</code></pre>
+<pre class="r"><code>table(future$nb_pred)</code></pre>
+<pre><code>## 
+## not trump     trump 
+##        98       209</code></pre>
+<pre class="r"><code>table(tweet_train$trump)</code></pre>
+<pre><code>## 
+## not trump     trump 
+##       824       783</code></pre>
+<p>This is a much higher ratio of Trump tweets (70%) then what was observed in the training and test sets (49%). This could be a real change in pattern, or it could be that our model is better suited to distinguishing Trump from his campaign staff and not well suited to distinguishing him from his administration staff. So let’s examine how the model classified tweets throughout the twitter feed timeline. We’ll look at whether there has been a dramatic change in how it classifies tweets make sure there isn’t a difference in our predictive ability over time.</p>
 <pre class="r"><code>library(lubridate)
 
 alltweets2_model &lt;- alltweets2 %&gt;% 
@@ -174,7 +181,8 @@ alltweets2_model %&gt;%
   ggtitle(&quot;Naive Bayes classifier predictions of @realDonaldTrump twitter activity by source&quot;) +
   xlab(&quot;Date of Tweet&quot;) + ylab(&quot;Source&quot;) </code></pre>
 <p><img src="/post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/prediction%20jitter-1.png" width="672" /></p>
-<p>There are several notable timepoints where twitter activity changes, which I annotate below. The first drop off occurs right around the time of David Robinson’s analysis. It’s possible that this drop off was because The Donald was ashamed after the ‘unmasking’ of his identity in his tweets and his negative twitter sentiment compared to his staff. However, it might be due to the difference how we collected the data with the Twitter API. I suspect there is an issue in how much data we were able to obtain from the twitter API, but I need to look into it further, since I could be missing some additional tweets. Twitter activity picks up again near the Access Hollywood tape release on October 7. Then it drops dramatically after the election - especially from the iPhone. The low activity continues through the transition and the iPhone usage from ‘not trump’ appears fairly stable once the Trump administration is sworn in.</p>
+<p>It looks like there was definitely a flurry of activity during the campaign and a lot fewer non-trump tweets since he has been in office. Our current predictions are reasonably similar to the pre-March-08 time period, when we knew with some certainty which tweets were sent by his staff members.</p>
+<p>There are several notable timepoints where twitter activity changes, which I annotate below. The first drop off occurs right around the time of David Robinson’s analysis. It’s possible that this drop off was because The Donald was ashamed after the ‘unmasking’ of his identity in his tweets and his negative twitter sentiment compared to his staff. However, it might be due to the difference how we collected the data with the Twitter API. I suspect there is an issue in how much data I was able to obtain from the twitter API because my API searches would only return ~400 tweets at a time. I need to look into it further, since I could be missing some additional tweets. Perhaps converting the json files provided by the <a href="http://www.trumptwitterarchive.com/">Trump Twitter Archive</a> would be a good way to double check the data. Twitter activity picks up again near the Access Hollywood tape release on October 7. Then it drops dramatically after the election - especially from the iPhone. The low activity continues through the transition and the iPhone usage from ‘not trump’ appears fairly stable once the Trump administration is sworn in. I think it’s safe to say that there will be plenty of interesting opportunities for mining the presidential twitter feed in the future, as the account is still quite active and it appears that reduced his twitter use since being sworn in.</p>
 <pre class="r"><code>ggplot(alltweets2_model, aes(date(date.time), source)) + 
   geom_jitter(aes(color = prediction)) +
   ggtitle(&quot;Naive Bayes classifier predictions of @realDonaldTrump twitter activity by source&quot;) +
@@ -188,45 +196,9 @@ alltweets2_model %&gt;%
   annotate(geom = &quot;label&quot;, label = &quot;Last Android Use&quot;, x= ymd(&quot;2017-03-08&quot;), y = 1) +
   annotate(geom = &quot;label&quot;, label = &quot;Robinson&quot;, x= ymd(&quot;2016-08-09&quot;), y = 1.6) </code></pre>
 <p><img src="/post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/prediction%20jitter%20with%20annotation-1.png" width="672" /></p>
-<pre class="r"><code>alltweets2_model %&gt;% 
-  mutate(date = date(date.time)) %&gt;% 
-  group_by(date) %&gt;% 
-  summarise(daily.trump = sum(prediction == &quot;trump&quot;), daily.nottrump = sum(prediction == &quot;not trump&quot;)) %&gt;% 
-  gather(&quot;Prediction&quot;, &quot;Count&quot;, 2:3) %&gt;% 
-  ggplot(aes(x=date, y=Count)) +
-  geom_line(aes(group = Prediction, color= Prediction)) +
-  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2016-11-08&quot;)))) +
-  geom_vline(aes(xintercept = as.numeric(ymd(&quot;2017-03-08&quot;)))) +
-  annotate(geom = &quot;label&quot;, label = &quot;Election Day&quot;, x= ymd(&quot;2016-11-08&quot;), y = 30) +
-  annotate(geom = &quot;label&quot;, label = &quot;Last Android Use&quot;, x= ymd(&quot;2017-03-08&quot;), y = 25) </code></pre>
-<p><img src="/post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<pre class="r"><code>library(xts)</code></pre>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre><code>## 
-## Attaching package: &#39;xts&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     first, last</code></pre>
-<pre class="r"><code>library(forecast)
-tweet_by_date &lt;- alltweets2_model %&gt;% 
-  mutate(date = date(date.time)) %&gt;% 
-  group_by(date) %&gt;% 
-  summarise(daily.trump = sum(prediction == &quot;trump&quot;), daily.nottrump = sum(prediction == &quot;not trump&quot;))
-
-trump_tweet.xts &lt;- xts(tweet_by_date$daily.trump, order.by = tweet_by_date$date)
-nottrump_tweet.xts &lt;- xts(tweet_by_date$daily.nottrump, order.by = tweet_by_date$date)
-
-autoplot(trump_tweet.xts) </code></pre>
-<p><img src="/post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
-<pre class="r"><code>autoplot(nottrump_tweet.xts)</code></pre>
-<p><img src="/post/2017-07-07-reallyistrump-tweet-predictor_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
 </div>
 <div id="deployment-of-the-model-via-the-reallyistrump-titter-bot" class="section level2">
 <h2>Deployment of the model via the <span class="citation">@ReallyIsTrump</span> Titter bot</h2>
-<p>To implement the model, I wrote an R script that culls the most recent 10 tweets from <span class="citation">@realDonaldTrump</span> and predicts whether it was likely to be from Trump himself or his staff using the naive Bayes model on the above features. Tweets that are new and are predicted to be from Trump are then replied to by my Twitter Bot <span class="citation">@ReallyIsTrump</span>. You can follow both <span class="citation">@realDonaldTrump</span> and <span class="citation">@ReallyIsTrump</span> to see how the model is classifying each of his tweets. I would like to eventually have my script triggered by tweet activity, but for now I automated it by scheduling a cronjob to run every 10 minutes.</p>
+<p>To implement the model, I wrote an R script that culls the most recent 10 tweets from <span class="citation">@realDonaldTrump</span> and predicts whether it was likely to be from Trump himself or his staff using the naive Bayes model on the above features. Tweets that are new and are predicted to be from Trump are then replied to by my Twitter Bot <span class="citation">[@ReallyIsTrump]</span>(<a href="https://twitter.com/ReallyIsTrump" class="uri">https://twitter.com/ReallyIsTrump</a>). You can follow both <span class="citation">@realDonaldTrump</span> and <span class="citation">@ReallyIsTrump</span> to see how the model is classifying each of his tweets. I would like to eventually have my script triggered by tweet activity, but for now I automated it by scheduling a cronjob to run every 10 minutes. Here is the most recent tweet from <span class="citation">@realDonaldTrump</span> that the model predicts as ‘likely trump.’</p>
+{{< tweet 884379186361749504 >}}
 </div>
