@@ -78,7 +78,17 @@ googleAnalytics = "UA-88236006-2"
     url = "/post/2015-09-07-meteor"
     weight = 4
     
-
+[[menu.main]]
+    identifier = "Blogroll"
+    name = "Blogroll"
+    url = "page/blogroll"
+    weight = 4
+    
+[[menu.main]]
+    parent = "Blogroll"
+    name = "R-bloggers"
+    url = "https://www.r-bloggers.com/"
+    weight = 1
 
 [[menu.main]]
     name = "Tags"
