@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+drafts/*
+public/*
+!public/404.html

@@ -14,6 +14,8 @@ bigimg: [{src: "img/feature-image-electrophoresis.jpg"}]
 <p>Pig and Hive are sometimes compared with one another for their ability to do data manipulations on a Hadoop cluster. There are some important differences. Hive is a direct implementation of the SQL language standard, which gives it a leg-up in terms of user familiarity. I wanted to see how the two compared in the number of posts on <a href="http://stackoverflow.com/">Stack Overflow</a> a popular question/answer site for software developers.</p>
 <p>I first found the most popular tag for the associated technologies at <a href="http://stackoverflow.com/tags">Stackoverflow</a>. Then I used the public data explorer on <a href="http://data.stackexchange.com/stackoverflow/query/440749/anonymous-feedback-votes-over-time-on-a-specific-tag?tagname=ocaml&amp;ref=survey-2016#graph">StackExchange</a> and entered the tags as queries. I then downloaded the csv file and brought it in to R for some visualizations.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: Installed Rcpp (0.12.12) different from Rcpp used to build dplyr (0.12.11).
+## Please reinstall dplyr to avoid random crashes or undefined behavior.</code></pre>
 <pre><code>## Loading tidyverse: ggplot2
 ## Loading tidyverse: tibble
 ## Loading tidyverse: tidyr
