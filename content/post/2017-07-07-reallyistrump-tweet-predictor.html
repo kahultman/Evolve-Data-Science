@@ -139,9 +139,11 @@ nb_cm</code></pre>
 <pre class="r"><code>load(url(&quot;https://github.com/kahultman/trump-tweets/raw/master/data/future.Rdata&quot;))
 future &lt;- future %&gt;% 
   mutate_each(funs(convert_counts), starts_with(&quot;sentiment&quot;)) %&gt;% 
-  mutate(tod = as.factor(tod))
-
-future$nb_pred &lt;- predict(tweet_nb, newdata = future, type = &quot;class&quot;)</code></pre>
+  mutate(tod = as.factor(tod))</code></pre>
+<pre><code>## `mutate_each()` is deprecated.
+## Use `mutate_all()`, `mutate_at()` or `mutate_if()` instead.
+## To map `funs` over a selection of variables, use `mutate_at()`</code></pre>
+<pre class="r"><code>future$nb_pred &lt;- predict(tweet_nb, newdata = future, type = &quot;class&quot;)</code></pre>
 <pre><code>## Warning in data.matrix(newdata): NAs introduced by coercion</code></pre>
 <pre class="r"><code>table(future$nb_pred)</code></pre>
 <pre><code>## 
