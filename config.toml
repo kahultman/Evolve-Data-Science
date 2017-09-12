@@ -3,12 +3,13 @@ DefaultContentLanguage = "en"
 title = "Evolve Data Science"
 relativeurls = true
 theme = "beautifulhugo"
-publishDir = "docs"
+#publishDir = "docs"
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
 disqusShortname = "keithhultman"
 googleAnalytics = "UA-88236006-2"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [Params]
   subtitle = "A data science blog by Keith Hultman"
